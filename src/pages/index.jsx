@@ -71,18 +71,18 @@ function BriefcaseIcon(props) {
   )
 }
 
-function ArrowDownIcon(props) {
+function ArrowRightIcon(props) {
   return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
+      <path 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
   )
 }
+
+
 
 function Article({ article }) {
   return (
@@ -139,9 +139,10 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
+      company: 'Sr. Software Engineer, Platform',
+      title: 'Remote',
       logo: logoPlanetaria,
+      team: 'Engineering',
       start: '2019',
       end: {
         label: 'Present',
@@ -149,23 +150,26 @@ function Resume() {
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
+      company: 'Software Engineer, Platform',
+      title: 'Remote',
       logo: logoAirbnb,
+      team: 'Engineering',
       start: '2014',
       end: '2019',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
+      company: 'Sr. Software Engineer, Frontend',
+      title: 'Remote',
       logo: logoFacebook,
+      team: 'Engineering',
       start: '2011',
       end: '2014',
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
+      company: 'Threat Research Engineer',
+      title: 'Remote',
       logo: logoStarbucks,
+      team: 'Engineering',
       start: '2008',
       end: '2011',
     },
@@ -175,7 +179,7 @@ function Resume() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
+        <span className="ml-3">Careers</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
@@ -199,21 +203,15 @@ function Resume() {
                   role.end.label ?? role.end
                 }`}
               >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
-                </time>
+                <span>{role.team}</span>
               </dd>
             </dl>
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+      <Button href="/careers" variant="secondary" className="group mt-6 w-full">
+        All open positions
+        <ArrowRightIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
   )
