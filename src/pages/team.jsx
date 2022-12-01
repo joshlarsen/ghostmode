@@ -4,8 +4,6 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import React from 'react'
 
-import Slider from 'react-slick'
-
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
