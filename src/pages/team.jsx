@@ -6,6 +6,7 @@ import React from 'react'
 
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import { SimpleLayout } from '@/components/SimpleLayout'
 import { Newsletter } from '@/components/Newsletter'
 import { Jobs } from '@/components/Jobs'
 import brad from '@/images/photos/team/brad.png'
@@ -26,42 +27,6 @@ import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { getAllJobs } from '@/lib/getAllJobs'
 import { formatDate } from '@/lib/formatDate'
-
-function BriefcaseIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
-
-function ArrowRightIcon(props) {
-  return (
-    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M14 5l7 7m0 0l-7 7m7-7H3"
-      />
-    </svg>
-  )
-}
 
 function Article({ article }) {
   return (
@@ -158,19 +123,13 @@ export default function Home({ articles, jobs }) {
           content="Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise."
         />
       </Head>
-      <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Meet the Ghost team.
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Founded by career cyber security professions and multiple time &
-            supported by experts in the security industry, the combination of
-            deep knowledge and proven success create the perfect recipe to bring
-            this game-changing technology to market.
-          </p>
-        </div>
-      </Container>
+      <SimpleLayout
+        title="Meet the Ghost team."
+        intro="Founded by career cyber security professions and multiple time &
+        supported by experts in the security industry, the combination of
+        deep knowledge and proven success create the perfect recipe to bring
+        this game-changing technology to market."
+      ></SimpleLayout>
       <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
