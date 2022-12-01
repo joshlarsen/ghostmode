@@ -8,18 +8,19 @@ export async function generateRssFeed() {
   let articles = await getAllArticles()
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   let author = {
-    name: 'Spencer Sharp',
-    email: 'spencer@planetaria.tech',
+    name: 'A Ghost',
+    email: 'boo@ghost.security',
   }
 
   let feed = new Feed({
     title: author.name,
-    description: 'Your blog description',
+    description:
+      'Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise.',
     author,
     id: siteUrl,
     link: siteUrl,
-    image: `${siteUrl}/favicon.ico`,
-    favicon: `${siteUrl}/favicon.ico`,
+    image: `${siteUrl}/favicon.png`,
+    favicon: `${siteUrl}/favicon.png`,
     copyright: `All rights reserved ${new Date().getFullYear()}`,
     feedLinks: {
       rss2: `${siteUrl}/rss/feed.xml`,
@@ -28,7 +29,7 @@ export async function generateRssFeed() {
   })
 
   for (let article of articles) {
-    let url = `${siteUrl}/articles/${article.slug}`
+    let url = `${siteUrl}/blog/${article.slug}`
     let html = ReactDOMServer.renderToStaticMarkup(
       <article.component isRssFeed />
     )
