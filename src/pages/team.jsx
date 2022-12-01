@@ -12,8 +12,8 @@ import { Jobs } from '@/components/Jobs'
 import brad from '@/images/photos/team/brad.png'
 import david from '@/images/photos/team/david.png'
 import don from '@/images/photos/team/don.png'
-import eric from '@/images/photos/team/eric.png'
-import greg from '@/images/photos/team/greg.png'
+import eric from '@/images/photos/team/eric.jpeg'
+import greg from '@/images/photos/team/greg.jpeg'
 import jack from '@/images/photos/team/jack.jpg'
 import jay from '@/images/photos/team/jay.png'
 import jen from '@/images/photos/team/jen.png'
@@ -90,7 +90,7 @@ function Photos() {
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="teamPhotos -my-4 flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8">
+      <div className="teamPhotos -my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
         {teamArray.map((image, idx) => (
           <div
             key={`${image.src}${idx}`}
