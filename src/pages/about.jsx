@@ -74,7 +74,7 @@ export default function About() {
               <p>
                 How exactly this could be done was a discussion that could only be had over beer, tacos, and ghost peppers. 
               </p>
-              <p><em>Challenge the Status Quo</em></p>
+              <h3 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">Challenge the Status Quo</h3>
               <p>
                 We live in a digital world. An overplayed sentence, yes, but true nonetheless. 
               </p>
@@ -90,7 +90,7 @@ export default function About() {
               <p>
               When it comes to application security, Ghost is going to change that. 
               </p>
-              <p><em>Enter: Ghost Security</em></p>
+              <h3 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">Enter: Ghost Security</h3>
               <p>
               The application security space is already getting pretty busy. By busy, we mean that sooner or later, just like the rest of the industry, there’s going to be significant bloat and an onus on the user to understand how to pick and choose vendors in order to implement the best solution for them. 
               </p>
@@ -120,11 +120,11 @@ export default function About() {
                 Ghost on LinkedIn
               </SocialLink>
               <SocialLink
-                href="mailto:boo@ghost[dot]security"
+                href="mailto:hello@ghost[dot]security"
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                boo@ghost.security
+                hello@ghost.security
               </SocialLink>
             </ul>
           </div>
