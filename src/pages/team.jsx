@@ -4,10 +4,10 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import React from 'react'
 
-import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { Newsletter } from '@/components/Newsletter'
+import { Jobs } from '@/components/Jobs'
 import brad from '@/images/photos/team/brad.png'
 import david from '@/images/photos/team/david.png'
 import don from '@/images/photos/team/don.png'
@@ -22,10 +22,6 @@ import luis from '@/images/photos/team/luis.png'
 import megan from '@/images/photos/team/megan.png'
 import stevie from '@/images/photos/team/stevie.png'
 import yuri from '@/images/photos/team/yuri.png'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { getAllJobs } from '@/lib/getAllJobs'
@@ -79,46 +75,6 @@ function Article({ article }) {
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
-  )
-}
-
-function Jobs({ jobs }) {
-  return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Careers</span>
-      </h2>
-      <ol className="mt-6 space-y-4">
-        {jobs?.map((job, idx) => (
-          <li key={idx} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image
-                src={logoStarbucks}
-                alt=""
-                className="h-7 w-7"
-                unoptimized
-              />
-            </div>
-            <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {job.position}
-              </dd>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-                {job.team}
-              </dd>
-              <dd className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
-                <span>Remote</span>
-              </dd>
-            </dl>
-          </li>
-        ))}
-      </ol>
-      <Button href="/careers" variant="secondary" className="group mt-6 w-full">
-        All open positions
-        <ArrowRightIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-      </Button>
-    </div>
   )
 }
 
