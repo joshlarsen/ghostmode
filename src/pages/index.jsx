@@ -1,11 +1,13 @@
 import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
-import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import dnx from '@/images/logos/dnx.png'
+import foursixeight from '@/images/logos/468.png'
+import munichre from '@/images/logos/munichre.svg'
 import {
   TwitterIcon,
   InstagramIcon,
@@ -69,15 +71,15 @@ function BriefcaseIcon(props) {
 function ArrowRightIcon(props) {
   return (
     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
-      <path 
-        stroke-linecap="round" 
-        stroke-linejoin="round" 
-        stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M14 5l7 7m0 0l-7 7m7-7H3"
+      />
+    </svg>
   )
 }
-
-
 
 function Article({ article }) {
   return (
@@ -102,32 +104,61 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
+function Investors() {
+  return (
+    <div>
+      <h3 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">
+        Backed by world class investors.
+      </h3>
+      <div className="mt-4">
+        <div className="flex justify-start gap-5 overflow-hidden py-4 sm:gap-8">
+          {[foursixeight, dnx, munichre].map((image, _) => (
+            <div
+              key={image.src}
+              className="relative flex aspect-[9/10] w-44 items-center overflow-hidden rounded-xl bg-zinc-800 px-4 dark:bg-zinc-800 sm:w-44 sm:rounded-2xl"
+            >
+              <Image
+                src={image}
+                alt=""
+                sizes="(min-width: 640px) 18rem, 11rem"
+                className=""
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function Newsletter() {
   return (
-    <form
-      action="/thank-you"
-      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-    >
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
-      </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
-      </p>
-      <div className="mt-6 flex">
-        <input
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-        />
-        <Button type="submit" className="ml-4 flex-none">
-          Join
-        </Button>
-      </div>
-    </form>
+    <div>
+      <form
+        action="/thank-you"
+        className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
+      >
+        <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          <MailIcon className="h-6 w-6 flex-none" />
+          <span className="ml-3">Stay up to date</span>
+        </h2>
+        <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          Get notified about <span className="text-teal-500 font-bold">Ghost</span> news, unsubscribe at any time.
+        </p>
+        <div className="mt-6 flex">
+          <input
+            type="email"
+            placeholder="Email address"
+            aria-label="Email address"
+            required
+            className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+          />
+          <Button type="submit" className="ml-4 flex-none">
+            Notify me
+          </Button>
+        </div>
+      </form>
+    </div>
   )
 }
 
@@ -216,9 +247,7 @@ export default function Home({ articles }) {
   return (
     <>
       <Head>
-        <title>
-          Ghost Security - The modern application security platform
-        </title>
+        <title>Ghost Security - The modern application security platform</title>
         <meta
           name="description"
           content="Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise."
@@ -230,9 +259,10 @@ export default function Home({ articles }) {
             The modern application security platform.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            The Ghost Platform is built from the ground up to enable enterprises to bring contextually 
-            relevant security insights to their modern applications at cloud scale and DevOps speed. Stop chasing 
-            false positives, vague alerts, and mountains of useless findings.
+            The Ghost Platform is built from the ground up to enable enterprises
+            to bring contextually relevant security insights to their modern
+            applications at cloud scale and DevOps speed. Stop chasing false
+            positives, vague alerts, and mountains of useless findings.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -241,9 +271,9 @@ export default function Home({ articles }) {
               icon={TwitterIcon}
             />
             <SocialLink
-              href="https://instagram.com/ghostsecurityhq"
-              aria-label="Follow Ghost on Instagram"
-              icon={InstagramIcon}
+              href="https://www.linkedin.com/company/ghostsecurity/"
+              aria-label="Follow Ghost on LinkedIn"
+              icon={LinkedInIcon}
             />
             <SocialLink
               href="https://github.com/ghostsecurity"
@@ -251,22 +281,32 @@ export default function Home({ articles }) {
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://www.linkedin.com/company/ghostsecurity/"
-              aria-label="Follow Ghost on LinkedIn"
-              icon={LinkedInIcon}
+              href="https://instagram.com/ghostsecurityhq"
+              aria-label="Follow Ghost on Instagram"
+              icon={InstagramIcon}
             />
+          </div>
+        </div>
+      </Container>
+      <Container className="mt-20">
+        <div className="mx-auto flex flex-col sm:flex-row max-w-xl justify-between lg:max-w-none lg:grid-cols-2">
+          <Investors />
+          <div className="pb-4 pt-10 sm:pt-0 max-w-sm flex items-end">
+            <Newsletter className="" />
           </div>
         </div>
       </Container>
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-8 sm:gap-16">
+            <h3 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">
+              Recent posts.
+            </h3>
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
             <Resume />
           </div>
         </div>
@@ -283,7 +323,7 @@ export async function getStaticProps() {
   return {
     props: {
       articles: (await getAllArticles())
-        .slice(0, 4)
+        .slice(0, 3)
         .map(({ component, ...meta }) => meta),
     },
   }
