@@ -1,8 +1,46 @@
+import Image from 'next/image'
 import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoAnimaginary from '@/images/logos/animaginary.svg'
+import logoHelioStream from '@/images/logos/helio-stream.svg'
+import logoCosmos from '@/images/logos/cosmos.svg'
+
+import { getAllJobs } from '@/lib/getAllJobs'
+
+const benefits = [
+  {
+    name: 'Global Team',
+    description:
+      'Creating technology to empower civilians to explore space on their own terms.',
+    link: { href: 'http://planetaria.tech', label: 'Learn more' },
+    logo: logoPlanetaria,
+  },
+  {
+    name: 'Competitive Compensation',
+    description:
+      'High performance web animation library, hand-written in optimized WASM.',
+    link: { href: '#', label: 'github.com' },
+    logo: logoAnimaginary,
+  },
+  {
+    name: 'Health & Wellness',
+    description:
+      'Real-time video streaming library, optimized for interstellar transmission.',
+    link: { href: '#', label: 'github.com' },
+    logo: logoHelioStream,
+  },
+  {
+    name: 'Professional Growth',
+    description:
+      'The operating system that powers our Planetaria space shuttles.',
+    link: { href: '#', label: 'github.com' },
+    logo: logoCosmos,
+  },
+]
 
 function JobsSection({ children, ...props }) {
   return (
@@ -20,13 +58,15 @@ function Job({ title, href, children }) {
       <Card.Title as="h3" href={href}>
         {title}
       </Card.Title>
-      <Card.Link className="text-zinc-500" href={href}>Remote</Card.Link>
+      <Card.Link className="text-sm font-semibold text-zinc-500" href={href}>
+        Remote
+      </Card.Link>
       <Card.Description>{children}</Card.Description>
     </Card>
   )
 }
 
-export default function Uses() {
+export default function Positions({ jobs }) {
   return (
     <>
       <Head>
@@ -40,60 +80,69 @@ export default function Uses() {
         title="Do you believe in Ghosts?"
         intro="Great teams build great products. We work hard to maintain an environment where our team is empowered to do their best work."
       >
+        <div>
+          <ul
+            role="list"
+            className="grid grid-cols-1 gap-x-12 gap-y-16 pb-20 sm:grid-cols-2 lg:grid-cols-2"
+          >
+            {benefits.map((benefit) => (
+              <Card as="li" key={benefit.name}>
+                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                  <Image
+                    src={benefit.logo}
+                    alt={benefit.name}
+                    className="h-8 w-8"
+                    unoptimized
+                  />
+                </div>
+                <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                  {benefit.name}
+                </h2>
+                <Card.Description>{benefit.description}</Card.Description>
+              </Card>
+            ))}
+          </ul>
+        </div>
         <div className="space-y-20">
+          <h3 className="text-xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
+            Open Positions.
+          </h3>
           <JobsSection title="Engineering">
-            <Job title="Senior Engineering Manager" href="https://jobs.lever.co/ghostsecurity/88b36420-b254-497e-b433-9ad272f1185e">
-              I was using an Intel-based 16” MacBook Pro prior to this and the
-              difference is night and day. I’ve never heard the fans turn on a
-              single time, even under the incredibly heavy loads I put it
-              through with our various launch simulations.
-            </Job>
-            <Job title="Senior Software Engineer - Backend" href="https://jobs.lever.co/ghostsecurity/25d2ed3e-91a6-4e33-9c5b-12a4072ebbf1">
-              I was using an Intel-based 16” MacBook Pro prior to this and the
-              difference is night and day. I’ve never heard the fans turn on a
-              single time, even under the incredibly heavy loads I put it
-              through with our various launch simulations.
-            </Job>
-            <Job title="Senior Software Engineer - Frontend" href="https://jobs.lever.co/ghostsecurity/5a86897b-e1fe-4f7c-8c3a-e745e5929925">
-              The only display on the market if you want something HiDPI and
-              bigger than 27”. When you’re working at planetary scale, every
-              pixel you can get counts.
-            </Job>
-            <Job title="Senior Software Engineer - Platform" href="https://jobs.lever.co/ghostsecurity/bbd735a5-a861-4910-9896-136d48990c57">
-              They don’t make keyboards the way they used to. I buy these any
-              time I see them go up for sale and keep them in storage in case I
-              need parts or need to retire my main.
-            </Job>
-            <Job title="Cloud Infrastructure Engineer" href="https://jobs.lever.co/ghostsecurity/c63ebb61-ee99-492e-a09f-fd09ed7e66c3">
-              Something about all the gestures makes me feel like a wizard with
-              special powers. I really like feeling like a wizard with special
-              powers.
-            </Job>
-            <Job title="Herman Miller Aeron Chair" href="#">
-              If I’m going to slouch in the worst ergonomic position imaginable
-              all day, I might as well do it in an expensive chair.
-            </Job>
+            {jobs
+              .filter((j) => j.team == 'Engineering')
+              .map((job, idx) => (
+                <Job title={job.position} href={job.link} key={idx}>
+                  {job.description}
+                </Job>
+              ))}
           </JobsSection>
           <JobsSection title="Research">
-            <Job title="Senior Threat Researcher" href="https://jobs.lever.co/ghostsecurity/c071b4b5-f357-4ff0-9388-2bfa0568c519">
-              I don’t care if it’s missing all of the fancy IDE features
-              everyone else relies on, Sublime Text is still the best text
-              editor ever made.
-            </Job>
-            <Job title="Threat Researcher" href="https://jobs.lever.co/ghostsecurity/987c5fe0-2e1d-4360-907c-5d0b8f432cc0">
-              I’m honestly not even sure what features I get with this that
-              aren’t just part of the macOS Terminal but it’s what I use.
-            </Job>
+            {jobs
+              .filter((j) => j.team == 'Research')
+              .map((job, idx) => (
+                <Job title={job.position} href={job.link} key={idx}>
+                  {job.description}
+                </Job>
+              ))}
           </JobsSection>
           <JobsSection title="Product">
-            <Job title="Figma" href="#">
-              We started using Figma as just a design tool but now it’s become
-              our virtual whiteboard for the entire company. Never would have
-              expected the collaboration features to be the real hook.
-            </Job>
+            {jobs
+              .filter((j) => j.team == 'Product')
+              .map((job, idx) => (
+                <Job title={job.position} href={job.link} key={idx}>
+                  {job.description}
+                </Job>
+              ))}
           </JobsSection>
         </div>
       </SimpleLayout>
     </>
   )
+}
+export async function getStaticProps() {
+  return {
+    props: {
+      jobs: await getAllJobs(),
+    },
+  }
 }
