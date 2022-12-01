@@ -7,6 +7,7 @@ import React from 'react'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import { Newsletter } from '@/components/Newsletter'
 import brad from '@/images/photos/team/brad.png'
 import david from '@/images/photos/team/david.png'
 import don from '@/images/photos/team/don.png'
@@ -28,29 +29,6 @@ import logoStarbucks from '@/images/logos/starbucks.svg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
-
-function MailIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
 
 function BriefcaseIcon(props) {
   return (
@@ -78,15 +56,15 @@ function BriefcaseIcon(props) {
 function ArrowRightIcon(props) {
   return (
     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
-      <path 
-        stroke-linecap="round" 
-        stroke-linejoin="round" 
-        stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M14 5l7 7m0 0l-7 7m7-7H3"
+      />
+    </svg>
   )
 }
-
-
 
 function Article({ article }) {
   return (
@@ -100,38 +78,6 @@ function Article({ article }) {
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
-  )
-}
-
-
-function Newsletter() {
-  return (
-    <div>
-      <form
-        action="/thank-you"
-        className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-      >
-        <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-          <MailIcon className="h-6 w-6 flex-none" />
-          <span className="ml-3">Stay up to date</span>
-        </h2>
-        <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          Get notified about <span className="text-teal-500 font-bold">Ghost</span> news, unsubscribe at any time.
-        </p>
-        <div className="mt-6 flex">
-          <input
-            type="email"
-            placeholder="Email address"
-            aria-label="Email address"
-            required
-            className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-          />
-          <Button type="submit" className="ml-4 flex-none">
-            Notify me
-          </Button>
-        </div>
-      </form>
-    </div>
   )
 }
 
@@ -218,31 +164,62 @@ function Jobs() {
 
 function Photos() {
   const { useState } = React
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2','rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2','rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2',]
-  let team = [jen, stevie, jack, luis, greg, josh, eric, brad, david, don, joel, megan, yuri]
+  let rotations = [
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+    'rotate-2',
+    '-rotate-2',
+  ]
+  let team = [
+    jen,
+    stevie,
+    jack,
+    luis,
+    greg,
+    josh,
+    eric,
+    brad,
+    jay,
+    david,
+    don,
+    joel,
+    megan,
+    yuri,
+  ]
   const [teamArray, updateTeamArray] = useState(team)
 
   const onClick = () => {
     // fade first photo out
     // updateTeamArray( arr => [...arr.slice(1), arr[0]])
-    updateTeamArray( arr => [...arr, arr[0]])
+    updateTeamArray((arr) => [...arr, arr[0]])
 
     setTimeout(onClick, 4000)
   }
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8 teamPhotos">
+      <div className="teamPhotos -my-4 flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8">
         {teamArray.map((image, idx) => (
           <div
             key={`${image.src}${idx}`}
             className={clsx(
-              'relative aspect-[2/3] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-56 sm:rounded-2xl duration-1000',
+              'relative aspect-[2/3] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 duration-1000 dark:bg-zinc-800 sm:w-56 sm:rounded-2xl',
               rotations[team.indexOf(image)]
             )}
           >
             <Image
-              onClick={ onClick }
+              onClick={onClick}
               src={image}
               alt=""
               sizes="(min-width: 640px) 18rem, 11rem"
@@ -259,9 +236,7 @@ export default function Home({ articles }) {
   return (
     <>
       <Head>
-        <title>
-          Ghost Security - The modern application security platform
-        </title>
+        <title>Ghost Security - The modern application security platform</title>
         <meta
           name="description"
           content="Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise."
@@ -273,7 +248,10 @@ export default function Home({ articles }) {
             Meet the Ghost team.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Founded by career cyber security professions and multiple time & supported by experts in the security industry, the combination of deep knowledge and proven success create the perfect recipe to bring this game-changing technology to market. 
+            Founded by career cyber security professions and multiple time &
+            supported by experts in the security industry, the combination of
+            deep knowledge and proven success create the perfect recipe to bring
+            this game-changing technology to market.
           </p>
         </div>
       </Container>
