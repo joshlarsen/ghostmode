@@ -40,7 +40,8 @@ export default function Document() {
     <Html className="h-full antialiased" lang="en">
       <Head>
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
-        <link rel="shortcut icon" type="image/jpg" href="favicon.png"/>
+        <link rel="shortcut icon" type="image/jpg" href="/favicon.png" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <link
           rel="alternate"
           type="application/rss+xml"

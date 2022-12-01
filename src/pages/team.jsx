@@ -219,25 +219,25 @@ function Jobs() {
 function Photos() {
   const { useState } = React
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2','rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2','rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2',]
-  let team = [brad, david, don, eric, greg, jack, jay, jen, joel, josh, luis, megan, stevie, yuri]
+  let team = [jen, stevie, jack, luis, greg, josh, eric, brad, david, don, joel, megan, yuri]
   const [teamArray, updateTeamArray] = useState(team)
 
   const onClick = () => {
-    updateTeamArray( arr => [...arr.slice(1), arr[0]])
-    console.log('clicky')
-    console.log('team', teamArray)
+    // fade first photo out
+    // updateTeamArray( arr => [...arr.slice(1), arr[0]])
+    updateTeamArray( arr => [...arr, arr[0]])
 
     setTimeout(onClick, 4000)
   }
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8">
-        {teamArray.map((image, _) => (
+      <div className="-my-4 flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8 teamPhotos">
+        {teamArray.map((image, idx) => (
           <div
-            key={image.src}
+            key={`${image.src}${idx}`}
             className={clsx(
-              'relative aspect-[2/3] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-56 sm:rounded-2xl',
+              'relative aspect-[2/3] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-56 sm:rounded-2xl duration-1000',
               rotations[team.indexOf(image)]
             )}
           >
