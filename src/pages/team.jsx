@@ -6,12 +6,20 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-} from '@/components/SocialIcons'
+import brad from '@/images/photos/team/brad.png'
+import david from '@/images/photos/team/david.png'
+import don from '@/images/photos/team/don.png'
+import eric from '@/images/photos/team/eric.png'
+import greg from '@/images/photos/team/greg.png'
+import jack from '@/images/photos/team/jack.jpg'
+import jay from '@/images/photos/team/jay.png'
+import jen from '@/images/photos/team/jen.png'
+import joel from '@/images/photos/team/joel.png'
+import josh from '@/images/photos/team/josh.jpg'
+import luis from '@/images/photos/team/luis.png'
+import megan from '@/images/photos/team/megan.png'
+import stevie from '@/images/photos/team/stevie.png'
+import yuri from '@/images/photos/team/yuri.png'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
@@ -94,13 +102,6 @@ function Article({ article }) {
   )
 }
 
-function SocialLink({ icon: Icon, ...props }) {
-  return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </Link>
-  )
-}
 
 function Newsletter() {
   return (
@@ -212,6 +213,33 @@ function Resume() {
   )
 }
 
+function Photos() {
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2',]
+
+  return (
+    <div className="mt-16 sm:mt-20">
+      <div className="-my-4 flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8">
+        {[brad, david, don, eric, greg, jack, jay, jen, joel, josh, luis, megan, stevie, yuri].map((image, imageIndex) => (
+          <div
+            key={image.src}
+            className={clsx(
+              'relative aspect-[2/3] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-56 sm:rounded-2xl',
+              rotations[imageIndex % rotations.length]
+            )}
+          >
+            <Image
+              src={image}
+              alt=""
+              sizes="(min-width: 640px) 18rem, 11rem"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function Home({ articles }) {
   return (
     <>
@@ -227,37 +255,14 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            The modern application security platform.
+            Meet the Ghost team.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            The Ghost Platform is built from the ground up to enable enterprises to bring contextually 
-            relevant security insights to their modern applications at cloud scale and DevOps speed. Stop chasing 
-            false positives, vague alerts, and mountains of useless findings.
+            Founded by career cyber security professions and multiple time & supported by experts in the security industry, the combination of deep knowledge and proven success create the perfect recipe to bring this game-changing technology to market. 
           </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://twitter.com/ghostsecurityhq"
-              aria-label="Follow Ghost on Twitter"
-              icon={TwitterIcon}
-            />
-            <SocialLink
-              href="https://instagram.com/ghostsecurityhq"
-              aria-label="Follow Ghost on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com/ghostsecurity"
-              aria-label="Follow Ghost on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/company/ghostsecurity/"
-              aria-label="Follow Ghost on LinkedIn"
-              icon={LinkedInIcon}
-            />
-          </div>
         </div>
       </Container>
+      <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
