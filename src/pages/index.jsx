@@ -229,7 +229,7 @@ export async function getStaticProps() {
     props: {
       jobs: (await getAllJobs()).slice(0, 5),
       articles: (await getAllArticles())
-        .slice(0, 3)
+        .slice(0, 4)
         .map(({ component, ...meta }) => meta),
     },
   }
