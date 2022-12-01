@@ -162,8 +162,8 @@ function Newsletter() {
   )
 }
 
-function Resume() {
-  let resume = [
+function Jobs() {
+  let jobs = [
     {
       company: 'Sr. Software Engineer, Platform',
       title: 'Remote',
@@ -208,7 +208,7 @@ function Resume() {
         <span className="ml-3">Careers</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
+        {jobs.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
@@ -307,7 +307,7 @@ export default function Home({ articles }) {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Resume />
+            <Jobs />
           </div>
         </div>
       </Container>

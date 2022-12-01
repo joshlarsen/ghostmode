@@ -2,6 +2,9 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
+import React from 'react'
+
+import Slider from 'react-slick'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -105,35 +108,37 @@ function Article({ article }) {
 
 function Newsletter() {
   return (
-    <form
-      action="/thank-you"
-      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-    >
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
-      </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
-      </p>
-      <div className="mt-6 flex">
-        <input
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-        />
-        <Button type="submit" className="ml-4 flex-none">
-          Join
-        </Button>
-      </div>
-    </form>
+    <div>
+      <form
+        action="/thank-you"
+        className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
+      >
+        <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          <MailIcon className="h-6 w-6 flex-none" />
+          <span className="ml-3">Stay up to date</span>
+        </h2>
+        <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          Get notified about <span className="text-teal-500 font-bold">Ghost</span> news, unsubscribe at any time.
+        </p>
+        <div className="mt-6 flex">
+          <input
+            type="email"
+            placeholder="Email address"
+            aria-label="Email address"
+            required
+            className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+          />
+          <Button type="submit" className="ml-4 flex-none">
+            Notify me
+          </Button>
+        </div>
+      </form>
+    </div>
   )
 }
 
-function Resume() {
-  let resume = [
+function Jobs() {
+  let jobs = [
     {
       company: 'Sr. Software Engineer, Platform',
       title: 'Remote',
@@ -178,7 +183,7 @@ function Resume() {
         <span className="ml-3">Careers</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
+        {jobs.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
@@ -214,20 +219,32 @@ function Resume() {
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2',]
+  const { useState } = React
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2','rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2','rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2',]
+  let team = [brad, david, don, eric, greg, jack, jay, jen, joel, josh, luis, megan, stevie, yuri]
+  const [teamArray, updateTeamArray] = useState(team)
+
+  const onClick = () => {
+    updateTeamArray( arr => [...arr.slice(1), arr[0]])
+    console.log('clicky')
+    console.log('team', teamArray)
+
+    setTimeout(onClick, 4000)
+  }
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8">
-        {[brad, david, don, eric, greg, jack, jay, jen, joel, josh, luis, megan, stevie, yuri].map((image, imageIndex) => (
+        {teamArray.map((image, _) => (
           <div
             key={image.src}
             className={clsx(
               'relative aspect-[2/3] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-56 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
+              rotations[team.indexOf(image)]
             )}
           >
             <Image
+              onClick={ onClick }
               src={image}
               alt=""
               sizes="(min-width: 640px) 18rem, 11rem"
@@ -272,7 +289,7 @@ export default function Home({ articles }) {
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
-            <Resume />
+            <Jobs />
           </div>
         </div>
       </Container>
@@ -288,7 +305,7 @@ export async function getStaticProps() {
   return {
     props: {
       articles: (await getAllArticles())
-        .slice(0, 4)
+        .slice(0, 3)
         .map(({ component, ...meta }) => meta),
     },
   }
