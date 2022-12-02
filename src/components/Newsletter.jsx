@@ -1,10 +1,65 @@
 import { Button } from '@/components/Button'
+import { useState } from 'react'
+import axios from 'axios'
 
 export function Newsletter() {
+  const [buttonText, setButtonText] = useState('Notify me')
+  const [inputText, setInputText] = useState('')
+
+  /**
+   * Handle newsletter form submit
+   * @param {event} e
+   */
+  function handleSubmit(e) {
+    const portalId = '21900111'
+    // const formGuid = '0692c516-a41f-4e10-9edd-85b6a724809a' // pre-launch
+    const formGuid = '5c66f9d4-c6cf-4aed-9ece-81b9dcb561a9' // phase 2 pre-launch
+    const hsUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`
+    // const hsUrl = `http://localhost:4000/${portalId}/${formGuid}`
+
+    const payload = {
+      fields: [
+        {
+          objectTypeId: '0-1',
+          name: 'email',
+          value: inputText,
+        },
+      ],
+    }
+
+    setButtonText('Loading')
+
+    axios
+      .post(hsUrl, payload)
+      .then((resp) => {
+        console.log('hs', resp.data)
+      })
+      .catch((err) => {
+        setButtonText('Error!')
+        setTimeout(() => {
+          setButtonText('Notify me')
+        }, 2000)
+      })
+      .finally(() => {
+        setInputText('')
+        setButtonText('Thank you!')
+      })
+
+    e.preventDefault()
+  }
+
+  /**
+   * Handle newsletter input change
+   * @param {event} e
+   */
+  function handleChange(e) {
+    setInputText(e.target.value)
+  }
+
   return (
     <div>
       <form
-        action="/thank-you"
+        onSubmit={handleSubmit}
         className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
       >
         <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -18,14 +73,16 @@ export function Newsletter() {
         </p>
         <div className="mt-6 flex">
           <input
+            onChange={handleChange}
+            value={inputText}
             type="email"
             placeholder="Email address"
             aria-label="Email address"
             required
             className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-violet-400 dark:focus:ring-violet-400/10 sm:text-sm"
           />
-          <Button type="submit" className="ml-4 flex-none">
-            Notify me
+          <Button type="submit" className="ml-4 w-28 flex-none">
+            {buttonText}
           </Button>
         </div>
       </form>
