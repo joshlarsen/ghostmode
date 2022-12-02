@@ -27,6 +27,9 @@ import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { getAllJobs } from '@/lib/getAllJobs'
 import { formatDate } from '@/lib/formatDate'
+import { useEffect } from 'react'
+
+let sliderSetupTimeout, sliderTimeout, removerTimeout
 
 function Article({ article }) {
   return (
@@ -44,7 +47,9 @@ function Article({ article }) {
 }
 
 function Photos() {
-  const { useState } = React
+  const { useState, useRef } = React
+  const inputRef = useRef(null)
+
   let rotations = [
     'rotate-2',
     '-rotate-2',
@@ -63,34 +68,79 @@ function Photos() {
     '-rotate-2',
   ]
   let team = [
-    jen,
-    stevie,
-    jack,
-    luis,
     greg,
     josh,
     eric,
-    brad,
-    jay,
-    david,
     don,
-    joel,
-    megan,
+    david,
+    brad,
     yuri,
+    stevie,
+    luis,
+    jay,
+    joel,
+    jack,
+    megan,
+    jen,
   ]
   const [teamArray, updateTeamArray] = useState(team)
 
-  const onClick = () => {
-    // fade first photo out
-    // updateTeamArray( arr => [...arr.slice(1), arr[0]])
-    updateTeamArray((arr) => [...arr, arr[0]])
+  const slidePhotos = () => {
+    if (inputRef.current) {
+      // let element = document.getElementById('teamPhotos').children[0]
+      let element = inputRef.current.children[0]
 
-    setTimeout(onClick, 4000)
+      // Use the transition property to create a smooth animation
+      element.style.transition = 'opacity 1s, transform 2s, width 1s, margin 1s'
+
+      let offset = 32
+
+      // small screens
+      if (window.screen.width < 640) {
+        offset = 20
+      }
+
+      // calculate shift amount
+      let gapWidth = offset * 1
+      let width = element.scrollWidth
+      let shift = `${(width + gapWidth) * -1}px`
+
+      // decrease the element's scale and margin
+      element.style.transform = 'scaleX(0)'
+      element.style.marginLeft = shift
+
+      removerTimeout = setTimeout(() => {
+        // remove first item and push a new item
+        updateTeamArray((arr) => [...arr.slice(1), arr[0]])
+      }, 1100)
+
+      sliderTimeout = setTimeout(() => {
+        slidePhotos()
+      }, 3000)
+    }
   }
+
+  useEffect(() => {
+    // start the slider
+    sliderSetupTimeout = setTimeout(() => {
+      slidePhotos()
+    }, 2000)
+
+    // cleanup
+    return () => {
+      clearTimeout(sliderSetupTimeout)
+      clearTimeout(sliderTimeout)
+      clearTimeout(removerTimeout)
+    }
+  }, [])
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="teamPhotos -my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+      <div
+        ref={inputRef}
+        id="teamPhotos"
+        className="teamPhotos -my-4 flex gap-5 overflow-hidden py-4 sm:gap-8"
+      >
         {teamArray.map((image, idx) => (
           <div
             key={`${image.src}${idx}`}
@@ -100,7 +150,6 @@ function Photos() {
             )}
           >
             <Image
-              onClick={onClick}
               src={image}
               alt=""
               sizes="(min-width: 640px) 18rem, 11rem"
