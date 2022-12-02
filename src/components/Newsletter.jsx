@@ -12,10 +12,8 @@ export function Newsletter() {
    */
   function handleSubmit(e) {
     const portalId = '21900111'
-    // const formGuid = '0692c516-a41f-4e10-9edd-85b6a724809a' // pre-launch
     const formGuid = '5c66f9d4-c6cf-4aed-9ece-81b9dcb561a9' // phase 2 pre-launch
     const hsUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`
-    // const hsUrl = `http://localhost:4000/${portalId}/${formGuid}`
 
     const payload = {
       fields: [
@@ -27,7 +25,7 @@ export function Newsletter() {
       ],
     }
 
-    setButtonText('Loading')
+    setButtonText('...')
 
     axios
       .post(hsUrl, payload)
