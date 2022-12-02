@@ -20,56 +20,56 @@ const projects = [
   {
     name: 'AWS',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
+      'Protect applications and APIs deployed in Amazon Web Services by integrating with load balancer traffic and API Gateways.',
     link: { href: '#', label: 'Learn more' },
     logo: logoAWS,
   },
   {
     name: 'Azure',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
+      'Protect applications and APIs deployed in Microsoft Azure by integrating with Azure Virtual Network TAP, Azure Application Gateway, and Azure API Management.',
     link: { href: '#', label: 'Learn more' },
     logo: logoAzure,
   },
   {
     name: 'Google Cloud',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
+      'Protect applications and APIs deployed on Google Cloud Platform by integrating with VPC Packet Mirroring, and Google Cloud API Gateways.',
     link: { href: '#', label: 'Learn more' },
     logo: logoGCP,
   },
   {
     name: 'Edge',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
+      'Reduce automated attacks, bots, and mass scanner noise by extending Ghost Platform Intelligence to your edge presence in Cloudflare and AWS Lambda@Edge.',
     link: { href: '#', label: 'Learn more' },
     logo: logoPlanetaria,
   },
   {
     name: 'API Gateway',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
+      'Leverage your existing API Gateway infrastructure to accelerate API surface area discovery and inventory.',
     link: { href: '#', label: 'Learn more' },
     logo: logoAPIgw,
   },
   {
     name: 'Containers',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
+      'Gain visibility into workload level attacks against your applications and APIs by seamlessly integrating with Isto, Linkerd, or Cillium service mesh.',
     link: { href: '#', label: 'Learn more' },
     logo: logoContainers,
   },
   {
     name: 'Event Management',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
+      "Ghost Platform event forwarders can be configured to send critical events to your existing SIEM tools to enhance your operations team's visibility.",
     link: { href: '#', label: 'Learn more' },
     logo: logoOpenShuttle,
   },
   {
     name: 'Workflows',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
+      'Achieve deeper workflow integration by integration Ghost Platform lifecycle management with your existing workflow management and ticketing systems.',
     link: { href: '#', label: 'Learn more' },
     logo: logoWorkflows,
   },
@@ -157,13 +157,14 @@ export default function Projects() {
   let [isOpen, setIsOpen] = useState(false)
 
   function openModal() {
-    console.log('openModal')
     setIsOpen(true)
   }
 
   function closeModal(e) {
-    console.log('closeModal')
-    setIsOpen(false)
+    // hack to prevent the bubbled up click from re-opening the modal
+    setTimeout(() => {
+      setIsOpen(false)
+    }, 100)
   }
 
   return (
@@ -177,7 +178,7 @@ export default function Projects() {
       </Head>
       <SimpleLayout
         title="The Ghost Platform integrates at every layer of your stack."
-        intro="We are building the Ghost Platform guided by the North Star of meeting our customers where they are. These means deployment models support all major cloud providers and purpose built integrations for every layer of your application stack from the edge to the workloads."
+        intro="We are building the Ghost Platform guided by the North Star of meeting our customers where they are. These means deployment models supporting all major cloud providers and purpose built integrations for every layer of your application stack from the edge, to the workloads, to the operations tools."
       >
         <ul
           role="list"
@@ -211,7 +212,6 @@ export default function Projects() {
           ))}
         </ul>
       </SimpleLayout>
-      {/* <InterestModal open={isOpen} onClose={closeModal} /> */}
       <InterestModal isOpen={isOpen} onClose={closeModal} />
     </>
   )
