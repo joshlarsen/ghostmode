@@ -172,10 +172,10 @@ export default function Home({ articles, jobs }) {
       </Head>
       <SimpleLayout
         title="Meet the Ghost team."
-        intro="Founded by career cyber security professions and multiple time &
-        supported by experts in the security industry, the combination of
-        deep knowledge and proven success create the perfect recipe to bring
-        this game-changing technology to market."
+        intro="Ghost Security is founded by career cyber security professionals, multiple time founders,
+        and senior security leaders. The founding team is supported by security industry experts and veterans.
+        The Ghost team's combination of deep domain knowledge and proven success create the perfect recipe
+        to bring this game-changing technology to market."
       ></SimpleLayout>
       <Photos />
       <Container className="mt-24 md:mt-28">
