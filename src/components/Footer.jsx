@@ -6,7 +6,7 @@ function NavLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="transition hover:text-teal-500 dark:hover:text-teal-400"
+      className="transition hover:text-violet-500 dark:hover:text-violet-400"
     >
       {children}
     </Link>
@@ -28,7 +28,8 @@ export function Footer() {
                 <NavLink href="/platform">Platform</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Ghost Security, Inc. All rights reserved.
+                &copy; {new Date().getFullYear()} Ghost Security, Inc. All
+                rights reserved.
               </p>
             </div>
           </Container.Inner>
