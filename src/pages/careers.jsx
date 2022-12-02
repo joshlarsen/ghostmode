@@ -29,14 +29,14 @@ const benefits = [
   {
     name: 'Health & Wellness',
     description:
-      'Access to comprehensive medical, dental, and vision insurance for you and your family as well as a monthly wellness incentive.',
+      'Mental and physical wellness are top of mind at Ghost. We provide access to comprehensive medical, dental, and vision insurance for you and your family as well as a monthly wellness incentive.',
     link: { href: '#', label: '' },
     logo: logoHelioStream,
   },
   {
     name: 'Professional Growth',
     description:
-      'Community participation is encouraged and reimbursement for industry events and professional education is provided.',
+      'Ghost encourages community participation and provides reimbursement for industry events, training, and professional education.',
     link: { href: '#', label: '' },
     logo: logoCosmos,
   },
