@@ -21,49 +21,49 @@ const projects = [
     name: 'Azure',
     description:
       'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
+    link: { href: '#', label: 'Learn more' },
     logo: logoAnimaginary,
   },
   {
     name: 'Google Cloud',
     description:
       'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
+    link: { href: '#', label: 'Learn more' },
     logo: logoHelioStream,
   },
   {
     name: 'Edge',
     description:
       'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
+    link: { href: '#', label: 'Learn more' },
     logo: logoCosmos,
   },
   {
     name: 'API Gateways',
     description:
       'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
+    link: { href: '#', label: 'Learn more' },
     logo: logoOpenShuttle,
   },
   {
     name: 'Containers',
     description:
       'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
+    link: { href: '#', label: 'Learn more' },
     logo: logoOpenShuttle,
   },
   {
     name: 'Event Management',
     description:
       'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
+    link: { href: '#', label: 'Learn more' },
     logo: logoOpenShuttle,
   },
   {
     name: 'Workflows',
     description:
       'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
+    link: { href: '#', label: 'Learn more' },
     logo: logoOpenShuttle,
   },
 ]

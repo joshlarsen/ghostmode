@@ -15,29 +15,29 @@ const benefits = [
   {
     name: 'Global Team',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'Learn more' },
+      'The Ghost team is remote first, distributed, and geographically diverse. We offer an upgrade budget to outfit your office with the tools you need to excel.',
+    link: { href: '#', label: '' },
     logo: logoPlanetaria,
   },
   {
     name: 'Competitive Compensation',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
+      'We offer competitive compensation packages with unlimited, minimum required PTO as well as paid sick leave and holidays.',
+    link: { href: '#', label: '' },
     logo: logoAnimaginary,
   },
   {
     name: 'Health & Wellness',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
+      'Access to comprehensive medical, dental, and vision insurance for you and your family as well as a monthly wellness incentive.',
+    link: { href: '#', label: '' },
     logo: logoHelioStream,
   },
   {
     name: 'Professional Growth',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
+      'Community participation is encouraged and reimbursement for industry events and professional education is provided.',
+    link: { href: '#', label: '' },
     logo: logoCosmos,
   },
 ]
@@ -83,7 +83,7 @@ export default function Positions({ jobs }) {
         <div>
           <ul
             role="list"
-            className="grid grid-cols-1 gap-x-12 gap-y-16 pb-20 sm:grid-cols-2 lg:grid-cols-2"
+            className="grid grid-cols-1 gap-x-12 gap-y-16 pb-20 sm:grid-cols-2"
           >
             {benefits.map((benefit) => (
               <Card as="li" key={benefit.name}>
@@ -98,12 +98,14 @@ export default function Positions({ jobs }) {
                 <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
                   {benefit.name}
                 </h2>
-                <Card.Description>{benefit.description}</Card.Description>
+                <Card.Description>
+                  <div className="max-w-md">{benefit.description}</div>
+                </Card.Description>
               </Card>
             ))}
           </ul>
         </div>
-        <div className="space-y-20">
+        <div className="space-y-10">
           <h3 className="text-xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
             Open Positions.
           </h3>
