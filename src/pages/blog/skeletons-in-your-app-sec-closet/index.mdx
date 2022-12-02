@@ -1,0 +1,43 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+
+export const meta = {
+  author: 'A Ghost',
+  date: '2022-10-25',
+  title: '4 Skeletons That May Be In Your App Sec Program Closet',
+  description:
+    'Maintaining an effective application security program is tough. New applications are being developed and updated daily and with the increased usage of microservices, the infrastructure supporting these applications varies greatly.',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+We get it. Maintaining an effective application security program is tough. New applications are being developed and updated daily and with the increased usage of microservices, the infrastructure supporting these applications varies greatly. In a world where things move quickly, keeping up can be daunting. Below are 4 skeletons you may find in your application security program’s closet, and considerations that will help you clean them out and regain confidence in your modern application security posture.
+
+### Not Continuously Updating App Inventory
+
+Ideally, when created, updated, or deprecated, every application successfully conforms to the stated management principles of a given organization. This would result in an up to date and accurate count of all applications and APIs being used making comprehensive management achievable. As many of you know, the reality is that not all applications are inventoried the same way, if at all. Shadow APIs are unknown to administrators and slide past standardized security and maintenance processes. Additionally, just because you’ve documented the existence of an application’s resources at initial development time doesn’t mean you’ve captured all current information about it and it’s corresponding cloud environment. These types of insights are extremely dynamic, changing often which then requires an update to associated management processes.
+
+Organizations need a continuous understanding of their application ecosystem - not just a moment in time view - to ensure that all items are within their purview. Application development happens very quickly, so ensuring an automated mechanism is in place to notify teams of newly discovered apps is critical so additional unnecessary risk is not introduced to the organization.
+
+### No Relevant Context Applied to Prioritize Security Actions
+
+When it comes to responding to security events, security teams typically strive to prioritize them based on those that introduce the most risk to an organization. Not all applications and APIs should be treated equally when it comes to criticality of response. In order to confidently and correctly determine which actions to take first, security teams need to understand critical pieces of relevant information. To do this properly, teams need an application security solution that understands things like if the asset in question has:
+
+- access to sensitive data
+- an IAM role that grants administrative privileges
+- public facing access
+- Pieces of information like what’s listed above provides a more complete picture into all the attack vectors associated with a given application.
+
+Looking at API’s alone isn’t enough and organizations must also analyze the infrastructure and resources supporting all aspects of the app. Similar to continuously updating the API inventory, the same must be done for understanding attributes associated with each area of the modern application. The information must be automatically updated regularly to ensure that when a misconfiguration or vulnerability is identified, teams can make quick response decisions based on up-to-date and accurate insights.
+
+### Siloed Approach to Securing Apps and Corresponding Infrastructure
+
+Security operations teams have the daunting task of continuously monitoring all aspects of an organization’s people, processes, and technology to ultimately prevent and detect cybersecurity incidents. This requires a multifaceted approach - pulling in information from various sources and being able to form a comprehensive strategy. Putting the appropriate information in front of your security team to wrap application security into the rest of the organization’s information security strategy is critical.
+
+To achieve this, implement a solution that provides the relevant contextual data to the different teams involved in security operations and incident response in a simple to manage, easy to understand way. This results in an understanding of how application security impacts overall risk. Now, previously disparate stakeholders are rowing in the same direction.
+
+### Program Deployment and Maintenance is Manual, Tedious, and Resource Heavy
+
+Putting together a program is one thing, implementing and maintaining it is a whole other. Having an understanding and agreement on the resources required can make or break the success of the program. This rings true for both the people and technology required. Like anything in life, if implementing a solution is cumbersome, disruptive, and not providing real value then adoption will likely falter.
+
+Choose a technology solution that minimizes resource consumption and makes deployment and ongoing management a breeze. Choose a tool that works with you, not against you. Your solution should use automation where possible to free up resources and ensure things are kept up to date.
