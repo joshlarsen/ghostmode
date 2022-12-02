@@ -1,10 +1,7 @@
 import { Button } from '@/components/Button'
 import Image from 'next/image'
 
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoG from '@/images/g.png'
 
 function BriefcaseIcon(props) {
   return (
@@ -52,13 +49,8 @@ export function Jobs({ jobs }) {
       <ol className="mt-6 space-y-4">
         {jobs?.map((job, idx) => (
           <li key={idx} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image
-                src={logoStarbucks}
-                alt=""
-                className="h-7 w-7"
-                unoptimized
-              />
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full bg-zinc-100 shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0">
+              <Image src={logoG} alt="" className="h-7 w-7" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
