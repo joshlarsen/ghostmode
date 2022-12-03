@@ -36,20 +36,15 @@ const modeScript = `
 `
 
 class GhostDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
-  }
+  // static async getInitialProps(ctx) {
+  //   const initialProps = await Document.getInitialProps(ctx)
+  //   return { ...initialProps }
+  // }
 
   render() {
-    const { head } = this.props
-    // probably not the right way to grab page title & desc
-    const t = head.filter((x) => x.type == 'title')[0].props.children
-    const d = head
-      .filter((x) => x.type == 'meta')
-      .map((x) => x.props)
-      .filter((x) => x.name == 'description')[0].content
-
+    const t = 'Ghost Security - The modern application security platform'
+    const d =
+      'Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise.'
     return (
       <Html className="h-full antialiased" lang="en">
         <Head>
