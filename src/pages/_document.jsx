@@ -36,6 +36,7 @@ const modeScript = `
 `
 
 class GhostDocument extends Document {
+  // TODO: get page title and description
   // static async getInitialProps(ctx) {
   //   const initialProps = await Document.getInitialProps(ctx)
   //   return { ...initialProps }
