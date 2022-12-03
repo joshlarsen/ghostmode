@@ -114,7 +114,7 @@ export default function Home({ articles, jobs }) {
         </div>
       </Container>
       <Container className="mt-20">
-        <div className="mx-auto flex max-w-xl flex-col justify-between sm:flex-row lg:max-w-none lg:grid-cols-2">
+        <div className="mx-auto flex max-w-xl flex-col justify-between lg:max-w-5xl lg:grid-cols-2 lg:flex-row">
           <Investors />
           <div className="flex max-w-sm items-end pb-4 pt-10 sm:pt-0">
             <Newsletter />
