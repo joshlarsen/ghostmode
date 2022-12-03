@@ -1,4 +1,4 @@
-import { Head, Html, Main, NextScript } from 'next/document'
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -35,28 +35,56 @@ const modeScript = `
   }
 `
 
-export default function Document() {
-  return (
-    <Html className="h-full antialiased" lang="en">
-      <Head>
-        <script dangerouslySetInnerHTML={{ __html: modeScript }} />
-        <link rel="shortcut icon" type="image/jpg" href="/favicon.png" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.xml`}
-        />
-        <link
-          rel="alternate"
-          type="application/feed+json"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
-        />
-      </Head>
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  )
+class GhostDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
+  }
+
+  render() {
+    const { head } = this.props
+    // probably not the right way to grab page title & desc
+    const t = head.filter((x) => x.type == 'title')[0].props.children
+    const d = head
+      .filter((x) => x.type == 'meta')
+      .map((x) => x.props)
+      .filter((x) => x.name == 'description')[0].content
+
+    return (
+      <Html className="h-full antialiased" lang="en">
+        <Head>
+          <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+          <link rel="shortcut icon" type="image/jpg" href="/favicon.png" />
+          <link rel="icon" type="image/png" href="/favicon.png" />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.xml`}
+          />
+          <link
+            rel="alternate"
+            type="application/feed+json"
+            href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
+          />
+          <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
+          <meta property="og:title" content={t} />
+          <meta property="og:description" content={d} />
+          <meta
+            property="og:image"
+            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og.png`}
+          />
+          <meta property="og:site_name" content="Ghost Security" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@ghostsecurityhq" />
+          <meta name="twitter:creator" content="@ghostsecurityhq" />
+        </Head>
+        <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
 }
+
+export default GhostDocument
