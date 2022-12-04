@@ -9,6 +9,16 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/blog/skeletons',
+        destination: '/blog/skeletons-in-your-app-sec-closet',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 const withMDX = nextMDX({
