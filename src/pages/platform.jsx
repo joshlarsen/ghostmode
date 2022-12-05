@@ -236,9 +236,9 @@ function InterestModal({ isOpen, onClose }) {
                       Ghost Platform Interest
                     </Dialog.Title>
                     <p className="mt-2 mb-8 text-sm font-semibold text-zinc-400">
-                      Select your primary cloud provider(s) and any integration
+                      {`Select your primary cloud provider(s) and any integration
                       use cases you'd like to explore. Enter your email and the
-                      Ghost Team will follow up to schedule a discussion.
+                      Ghost Team will follow up to schedule a discussion.`}
                     </p>
                     <div className="mt-2">
                       <div className="flex space-x-4">
