@@ -23,6 +23,9 @@ import luis from '@/images/photos/team/luis.png'
 import megan from '@/images/photos/team/megan.png'
 import stevie from '@/images/photos/team/stevie.png'
 import yuri from '@/images/photos/team/yuri.png'
+import chuck from '@/images/photos/team/chuck.png'
+import sean from '@/images/photos/team/sean.png'
+import owen from '@/images/photos/team/owen.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { getAllJobs } from '@/lib/getAllJobs'
@@ -64,6 +67,8 @@ function Photos() {
     'rotate-2',
     'rotate-2',
     '-rotate-2',
+    'rotate-2',
+    '-rotate-2',
   ]
   let team = [
     greg,
@@ -77,9 +82,12 @@ function Photos() {
     luis,
     jay,
     joel,
+    sean,
     jack,
     megan,
+    chuck,
     jen,
+    owen,
   ]
   const [teamArray, updateTeamArray] = useState(team)
 
