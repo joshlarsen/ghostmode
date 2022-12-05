@@ -119,12 +119,12 @@ function InterestModal({ isOpen, onClose }) {
         {
           objectTypeId: '0-1',
           name: 'cloud_provider',
-          value: Array.from(inputCspField),
+          value: Array.from(inputCspField).join(';'),
         },
         {
           objectTypeId: '0-1',
           name: 'use_cases',
-          value: Array.from(inputUseCaseField),
+          value: Array.from(inputUseCaseField).join(';'),
         },
       ],
     }
@@ -148,6 +148,8 @@ function InterestModal({ isOpen, onClose }) {
           setButtonText(thankYouText)
         }, 1000)
       })
+
+    e.preventDefault()
   }
 
   /**
