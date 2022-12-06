@@ -231,11 +231,11 @@ function InterestModal({ isOpen, onClose }) {
                   <form onSubmit={handleSubmit}>
                     <Dialog.Title
                       as="h3"
-                      className="text-lg font-medium leading-6 text-zinc-100"
+                      className="text-2xl font-bold leading-6 tracking-tight text-zinc-100"
                     >
                       Ghost Platform Interest
                     </Dialog.Title>
-                    <p className="mt-2 mb-8 text-sm font-semibold text-zinc-400">
+                    <p className="mt-2 mb-8 text-base text-zinc-400">
                       {`Select your primary cloud provider(s) and any integration
                       use cases you'd like to explore. Enter your email and the
                       Ghost Team will follow up to schedule a discussion.`}

@@ -24,7 +24,7 @@ const benefits = [
     description:
       'We offer competitive compensation packages with unlimited, minimum required PTO as well as paid sick leave and holidays.',
     link: { href: '#', label: '' },
-    logo: logoAnimaginary,
+    logo: logoCosmos,
   },
   {
     name: 'Health & Wellness',
@@ -38,7 +38,7 @@ const benefits = [
     description:
       'Ghost encourages community participation and provides reimbursement for industry events, training, and professional education.',
     link: { href: '#', label: '' },
-    logo: logoCosmos,
+    logo: logoAnimaginary,
   },
 ]
 
