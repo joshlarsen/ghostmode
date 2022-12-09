@@ -1,87 +1,302 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
 import Image from 'next/image'
-import designSystem from './planetaria-design-system.png'
+import edge1 from './edge1.png'
+import edge2 from './edge2.png'
 
 export const meta = {
   author: 'Josh Larsen',
   date: '2022-12-01',
   title: 'Exploring edge canary detection on Cloudflare',
   description:
-    'Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.',
-  hidden: true,
+    "Defense in depth as a security strategy is something we've been encouraging for quite some time in the infosec industry. There is no perfect solution to prevent the myraid attacks organizations are faced with every day, a layered approach is critical to mitigate different risks in different ways.",
 }
 
 export default (props) => <ArticleLayout meta={meta} {...props} />
 
-Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.
+Defense in depth as a security strategy is something we've been encouraging for quite some time in the infosec industry. There is no perfect solution to prevent the myraid attacks organizations are faced with every day, a layered approach is critical to mitigate different risks in different ways.
 
-<Image src={designSystem} alt="" />
+## Expanding capabilities at the edge
 
-I knew that to get it right I was going to have to replicate the viewing conditions of someone from the future, so I grabbed my space helmet from the closet, created a new Figma document, and got to work.
+Here at Ghost, we're building layered defenses that our customers can leverage at different parts of their application,
+API, and cloud stacks. As such, we have tight integrations with a number of technology providers at these different
+layers - from workload orchestration platforms like Kubernetes, to cloud providers like AWS, Azure and Google Cloud,
+to edge providers like Cloudflare and Akamai.
 
-## Sermone fata
+Cloudflare in particular is an interesting integration partner because of their recent advances in pushing more
+compute and storage capabilities to the edge. You may remember in the early days of AWS that the first services they
+launched were SQS (queues), S3 (storage), and EC2 (compute) - the building blocks of modern applications and APIs.
+Cloudflare has had Workers (compute) since 2017, but released KV (storage) in 2020 and R2 (storage) in 2021. If you
+take into account the recently released Queues (Nov. 2022) and D1 (relational database), its easy to see that Cloudflare
+has compelling capabilities that offer an interesting deployment option to challenge that of the traditional cloud providers.
 
-Lorem markdownum, bracchia in redibam! Terque unda puppi nec, linguae posterior
-in utraque respicere candidus Mimasque formae; quae conantem cervice. Parcite
-variatus, redolentia adeunt. Tyrioque dies, naufraga sua adit partibus celanda
-torquere temptata, erit maneat et ramos, [iam](#) ait dominari
-potitus! Tibi litora matremque fumantia condi radicibus opusque.
+<Image src={edge1} alt="" />
 
-Deus feram verumque, fecit, ira tamen, terras per alienae victum. Mutantur
-levitate quas ubi arcum ripas oculos abest. Adest [commissaque
-victae](#) in gemitus nectareis ire diva
-dotibus ora, et findi huic invenit; fatis? Fractaque dare superinposita
-nimiumque simulatoremque sanguine, at voce aestibus diu! Quid veterum hausit tu
-nil utinam paternos ima, commentaque.
+With this in mind, we thought we'd explore extending some of our application and API security goals out to the Cloudflare edge.
+Even though Cloudflare has some of their own security capabilities in the form of DDoS mitigation and WAF functions, what we
+are aiming to do is a little more specific of a use case.
 
-```c
-exbibyte_wins = gigahertz(3);
-grayscaleUtilityClient = control_uat;
-pcmciaHibernate = oop_virus_console(text_mountain);
-if (stateWaisFirewire >= -2) {
-    jfs = 647065 / ldapVrml(tutorialRestore, 85);
-    metal_runtime_parse = roomComputingResolution - toolbarUpload +
-            ipx_nvram_open;
-} else {
-    maximizeSidebar *= suffix_url(flatbed + 2, requirements_encoding_node +
-            only_qbe_media, minicomputer);
-}
+## Reducing noise
+
+One of our guiding principals at Ghost is reducing "toil" for our customers - reducing the amount of tedious, and often
+repetetive work that doesn't yield meaningful results. One way to do this is to reduce the amount of noise our customers see
+in the form of alerts, incidents, issues, and events. **Reducing** noise is an important way to **increase** signal.
+
+It's common knowledge that a vulnerable system exposed to the Internet will last mere minutes before being compromised,
+exploited, or otherwise taken advantage of. Depending on the underlying operating system and the resources it provides for
+attacker (e.g. access to bandwidth, compute resources, or sensitive data), constant Internet-wide mass scanning will alert
+attackers to its presence, and it is simply a matter of when - not if - the system is compromised.
+
+A recent conference <a href="https://www.slideshare.net/andrewwantsyou/staying-ahead-of-internet-background-exploitation-microsoft-bluehat-israel-2022" target="blank_">talk</a>
+by Greynoise offered emprical data to support the idea that simply reducing the visibility of vulnerable
+systems exposed to the Internet increased the mean time to compromise from 19 minutes to over 4 days. This exploration looks at
+ways we can leverage that concept with Cloudflare Workers and KV.
+
+## Approach
+
+The general idea for filtering out some of the noise associated with Internet-wide scanning is start with some notion of what
+this known-bad scanning activity looks like. For that, we turn to the excellent [Nuclei](https://nuclei.projectdiscovery.io/)
+project from Project Discovery. The Nuclei community creates and maintains a massive collection of templates that security
+researchers use to discover and test specific vulnerabilities and exploits. If we use these templates as a sample of known-bad
+scanning traffic, we can block the originators of that traffic at our edge and automatically block any further noise they make - with
+the added benefit of blocking any actual attack traffic they may attempt as well.
+
+A quick look at Nuclei templates gives us some ideas for common attack paths to look for:
+
+```bash
+/wp-admin
+/wp-config
+/etc/passwd
+/etc/shadow
+/.env
+../../
+cgi-bin
+.php
+.cgi
+interact.sh
+win.ini
+WEB-INF
+<script>
+%3Cscript%3C
 ```
 
-Aere repetiti cognataque natus. Habebat vela solutis saepe munus nondum adhuc
-oscula nomina pignora corpus deserat.
+We include `.php` here because 36% of the ~1,400 Nuclei templates involve some sort of PHP-related payload. If you use PHP in your environment,
+you may need to be more specific here to avoid blocking legitimate traffic.
 
-## Lethaei Pindumve me quae dinumerat Pavor
+If we treat requests for these paths as high confidence indicators of malicious scanning activity, we can safely block the sources
+of those requests and in theory reduce the noise we see - and have to triage and deal with - across our organization.
 
-Idem se saxa fata pollentibus geminos; quos pedibus. Est urnis Herses omnes nec
-divite: et ille illa furit sim verbis Cyllenius.
+## Benefits
 
-1. Captus inpleverunt collo
-2. Nec nam placebant
-3. Siquos vulgus
-4. Dictis carissime fugae
-5. A tacitos nulla viginti
+Reduce noise as far upstream as possible
+Leverage bad traffic directed at one app/API to protect other apps/APIs
+Make it harder/annoying for bad actors
 
-Ungues fistula annoso, ille addit linoque motatque uberior verso
-[rubuerunt](#) confine desuetaque. _Sanguine_ anteit
-emerguntque expugnacior est pennas iniqui ecce **haeret** genus: peiora imagine
-fossas Cephisos formosa! Refugitque amata [refelli](#)
-supplex. Summa brevis vetuere tenebas, hostes vetantis, suppressit, arreptum
-regna. Postquam conpescit iuvenis habet corpus, et erratica, perdere, tot mota
-ars talis.
+## How it works
 
-```c
-digital.webcam_dual_frequency = webmasterMms;
-if (5 + language_standalone_google) {
-    cc_inbox_layout *= file_character;
-    task += p;
-    lockUnicode += enterprise_monochrome(tokenFunctionPersonal, keyVirtual,
-            adf);
-}
-windows_binary_esports(87734, array(restoreRomTopology, adRaw(407314),
-        dongleBashThumbnail), interpreter);
+Deploys to Cloudflare Workers
+Uses Cloudflare KV as datastore
+Can apply to an entire domain (_.ghostbank.net/_)
+Can restrict to sub-domains / sub-paths
+
+Modes of operation:
+Read-only
+just log, don’t block
+Normal:
+1 bad path request = IP block, expires in 1 hr
+Paranoid:
+1 bad path request = IP block, every subsequent path hit extends block by 3 hrs
+
+## Build it
+
+First, create a KV store.
+
+<Image src={edge2} alt="" />
+
+Next, create a `wrangler.toml` to manage our Worker and KV deployments.
+
+```toml
+name = "paranormal"
+compatibility_date = "2022-11-09"
+
+account_id = "7c79-example-e12120e65775bd2ecb3"
+
+kv_namespaces = [
+  {
+    binding = "PARANORMAL",
+    id = "0e36-example-e4e9569d926b62c1cc",
+    preview_id = "165d-example-5cdf3e22b4c7d3a5dd"
+  }
+]
 ```
 
-Sit volat naturam; motu Cancri. Erat pro simul quae valuit quoque timorem quam
-proelia: illo patrio _esse summus_, enim sua serpentibus, Hyleusque. Est coniuge
-recuso; refert Coroniden ignotos manat, adfectu.
+Next, create a `paths.json` file to store the paths we want to trigger blocks from.
+
+```json
+[
+  "/wp-admin",
+  "/wp-config",
+  "/etc/passwd",
+  "/etc/shadow",
+  "/.env",
+  "../../",
+  "cgi-bin",
+  ".php",
+  ".cgi",
+  "interact.sh",
+  "win.ini",
+  "WEB-INF",
+  "<script>",
+  "%3Cscript%3E"
+]
+```
+
+Next, create a `worker.js` file to store the Worker code.
+
+```js
+import BAD_PATHS from './paths.json'
+import NEVER_BLOCK from './allowed_ips.json'
+
+/**
+ * Handle a request
+ * @param {Request} request
+ */
+async function handleRequest(request, ts) {
+  const url = new URL(request.url)
+  const blockStatus = 403
+  const TTL = 60 // expiration TTL in seconds (minimum 60)
+  const IP = request.headers.get('CF-Connecting-IP')
+  const key = IP
+  const path = url.pathname
+  const value = `${ts}-${path}`
+
+  /**
+   * set block flags
+   */
+  let blocked = await PARANORMAL.get(key)
+  let willBlock = BAD_PATHS.includes(path)
+  const allowed = NEVER_BLOCK.includes(IP)
+
+  /**
+   * allow list by IP
+   */
+  if (allowed) {
+    blocked = false
+    willBlock = false
+    console.log('[ok] request allowed from IP:', IP, 'on:', path)
+  }
+
+  /**
+   * already blocked, regardless of path
+   */
+  if (blocked) {
+    console.log('[blk] request blocked from IP:', IP, 'on:', path)
+    // update TTL for already blocked IP
+    await PARANORMAL.put(key, value, { expirationTtl: TTL })
+    console.log('[blk] updating block expiration for IP:', IP, 'on:', path)
+
+    return new Response(null, { status: blockStatus })
+  }
+
+  /**
+   * will be blocked
+   */
+  if (willBlock) {
+    // client is request a bad path, block for TTL seconds
+    await PARANORMAL.put(key, value, { expirationTtl: TTL })
+    console.log('[blk] creating block for IP:', IP, 'on:', path)
+
+    return new Response(null, { status: blockStatus })
+  }
+
+  /**
+   * if we got this far, request is OK
+   */
+  console.log('[ok] request ok from IP:', IP, 'on:', path)
+  const response = await fetch(request)
+
+  return response
+}
+
+addEventListener('fetch', (event) => {
+  try {
+    let ts = Date.now()
+    event.respondWith(handleRequest(event.request, ts))
+  } catch (e) {
+    console.log('error', e)
+  }
+})
+```
+
+Finally, deploy our `worker.js` to Cloudflare.
+
+```bash
+$ wrangler publish worker.js
+wrangler publish worker.js
+ ⛅️ wrangler 2.1.15 (update available 2.6.2)
+------------------------------------------------------
+Your worker has access to the following bindings:
+- KV Namespaces:
+  - PARANORMAL: 0e36-example-e4e9569d926b62c1cc
+Total Upload: 1.99 KiB / gzip: 0.80 KiB
+Uploaded paranormal (0.67 sec)
+Published paranormal (0.22 sec)
+  https://paranormal.acme.workers.dev
+```
+
+## Test it out
+
+We can test our Cloudflare canary block Worker by running some valid requests to an application or API on our domain.
+
+```bash
+$ curl https://api.mycorp.com/auth/status
+{"status":"ok"}
+```
+
+Now, if we send another request to one of our known bad paths, our Worker will set a temporary block on our IP address (IPv4 or IPv6).
+
+```bash
+$ curl https://api.mycorp.com/.env
+404 page not found
+```
+
+If we retry our original request, we are now blocked at the edge by a the Cloudflare Worker.
+
+```bash
+$ curl https://api.mycorp.com/auth/status
+{"status":403}
+```
+
+In our proof-of-concept, we only set the block for 1 min (the minimum TTL allowed by Cloudflare KV).
+
+## Pros and cons
+
+Now that we have a working proof-of-concept, we can take a step back and consider some of the pros and cons
+of our approach.
+
+### Pros
+
+- High confidence signal of bad requests - we can be confident that no legitimate requests would ever be made for paths such as `/.env`, `/etc/passed`, and `<script>`.
+- Highly read performant - Cloudflare KV is highly read-optimized
+- Broad coverage - we could get broad coverage across an entire domain with a single deployment
+- Cost effective - Worker requests and KV reads/writes are relatively inexpensive
+
+### Cons
+
+- Risky to deploy - if we trigger on an incorrect block path, we could block a lot of traffic
+- IP-based - if we trigger a block on a NATed IP address, we could inadvertently block many innocent users
+- Write limited - while Cloudflare KV is heavily read-optimized, the opposite is true of writes (both in terms of performance and cost)
+- Cloudflare KV is eventually consistent - there is a slight delay to propagate KV writes out to all Cloudflare edge locations, which limits the real-time nature of our block methodology
+
+## What's next?
+
+As a limited proof-of-concept, we were able to prove some basic functionality, However, there are a number of ways we might want to improve our approach.
+
+- More precise detections
+- Profile/fingerprint clients to make more nuanced decisions
+- Only trigger on non 20x responses to minimize false positives
+- Auto-block other bad IPs external threat feeds
+
+## Workers for platforms
+
+With Cloudflare's recently released [Workers for Platforms](https://blog.cloudflare.com/workers-for-platforms/), there should
+be even more interesting opportunities to expand and extend these capabilities. Stay tuned for more!
