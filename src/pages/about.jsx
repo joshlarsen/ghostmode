@@ -65,90 +65,40 @@ export default function About() {
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                Picture this: February in Southern California. The weather is
-                beautiful (isn’t it always?), spirits are high, and mouths are
-                on fire at a local Mexican restaurant.
+                It was a dark and stormy night in Baja California when the three
+                friends (who happened to all be cyber security experts) met up
+                for a weekend of off-shore fishing and fun. The team had
+                assembled to chase the elusive tuna migrating through the
+                feeding grounds of the pacific ocean, but mother nature had
+                other plans. The night air was thick with tension as the
+                discussion turned to a gnawing topic they’d discussed many times
+                before - their frustrations with the bloated and ineffective
+                world of application security.
               </p>
               <p>
-                The first time Greg Martin, Josh Larsen, and Eric Cornelius met
-                in person was arguably the perfect setting to make magic happen.
-                Each of them have spent years in the security space as serial
-                entrepreneurs - building technology and teams from the ground up
-                with the shared goal of creating solutions that solve problems
-                better. Essentially, making security less painful without
-                sacrificing efficacy. The trio was ready to do it again. This
-                time, focusing their sights on securing something that is
-                growing at rates that nobody can keep up with: modern
-                applications and the infrastructure that supports them.
+                With a history of founding multiple cyber startups, the team
+                knew only one path forward. With the combined might of their
+                years of experience and their unyielding determination, they
+                knew they could challenge the status quo and revolutionize the
+                application security industry.
               </p>
               <p>
-                How exactly this could be done was a discussion that could only
-                be had over beer, tacos, and ghost peppers.
-              </p>
-              <h3 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                Challenge the Status Quo
-              </h3>
-              <p>
-                We live in a digital world. An overplayed sentence, yes, but
-                true nonetheless.
-              </p>
-              <p>
-                With quite literally the majority of the world relying on
-                applications for both communication and entertainment, ensuring
-                that everyone - not just global 2000 organizations and the
-                government - are protected as they go about their lives each day
-                is top of mind for the Ghost founding trio.
+                As they devoured tacos and tasted the local mezcal, the
+                realization settled in that they were on the brink of something
+                great. They had a vision for a comprehensive solution that
+                leveraged the latest in machine learning and cloud technology to
+                protect users and their data at a scale never before seen. The
+                team aptly decided they would call this new mission Ghost
+                Security, a nod to the night’s ghost pepper sauce adoring the
+                tacos and their determination to haunt the industry and disrupt
+                the status quo.
               </p>
               <p>
-                As the years go on, the industry is bursting at the seams with
-                point solutions that are purpose-built to solve a particular
-                part of the problem. This is always painstakingly apparent at
-                industry conferences like Black Hat and RSA where the show floor
-                somehow manages to always get bigger. Although it’s great to see
-                growth, it’s a tough time to be a consumer. It’s hard to tell
-                where one solution stops and another starts.
-              </p>
-              <p>
-                For some reason, we’ve come to accept this. Despite the ‘single
-                pane of glass’ promises made by companies everywhere, we rely on
-                disparate technologies that lead to significant overlap in
-                capabilities, a workforce that’s tired of being expected to
-                understand a myriad of different technologies, and immense
-                budget inefficiencies because of what’s required to bring risk
-                down to an acceptable level.
-              </p>
-              <p>
-                When it comes to application security, Ghost is going to change
-                that.
-              </p>
-              <h3 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                Enter: Ghost Security
-              </h3>
-              <p>
-                The application security space is already getting pretty busy.
-                By busy, we mean that sooner or later, just like the rest of the
-                industry, there’s going to be significant bloat and an onus on
-                the user to understand how to pick and choose vendors in order
-                to implement the best solution for them.
-              </p>
-              <p>
-                Most of today’s approaches to application security are quickly
-                losing effectiveness because they miss addressing the nuances
-                created by modern cloud infrastructure. They rely on the user
-                for continuous inventorying of assets, they don’t leverage
-                machine learning in a forward thinking way, and they certainly
-                aren’t equipped to scale at the rate demanded by today’s cloud
-                scale microservice-driven architectures.
-              </p>
-              <p>
-                This is where there’s room for change. More than change, there’s
-                room to completely flip what’s acceptable on its head and build
-                a comprehensive, easy to implement, effective solution to
-                protect users and protect the data that they are sharing.
-              </p>
-              <p>
-                This is what Greg, Eric, Josh, and the entire team at Ghost
-                Security are dedicated to doing.
+                The storm raged on outside as the trio made their plans and
+                plotted their course. They knew it wouldn’t be easy, but they
+                were ready for the challenge. They were the ghost in the
+                machine, and they were resolved to leave a lasting mark on the
+                industry.
               </p>
             </div>
           </div>
