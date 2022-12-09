@@ -87,24 +87,29 @@ of those requests and in theory reduce the noise we see - and have to triage and
 
 ## Benefits
 
-Reduce noise as far upstream as possible
-Leverage bad traffic directed at one app/API to protect other apps/APIs
-Make it harder/annoying for bad actors
+We think of this type of approach as a form of canary detection, rather than strategies based on blocking content based requests.
+The signal that a potential attackers gives us by sending requests to a known-bad path allow us to block the attacker source for a
+predetermined length of time - and potentially extend the block if the attack continues to attempt to send us traffic.
+
+Benefits of this type of approach include reducing noise as far upstream as possible (i.e. at the edge), leveraging bad traffic
+directed at one application or API to protect other applications and APIs on our domain. Even though we don't expect to block all, or
+anywhere near all bad traffic, we can make harder for bad actors by blocking or slowing down their activity.
 
 ## How it works
 
-Deploys to Cloudflare Workers
-Uses Cloudflare KV as datastore
-Can apply to an entire domain (_.ghostbank.net/_)
-Can restrict to sub-domains / sub-paths
+The architecture for a proof-of-concept is fairly simple. We'll deploy a small code snippet to a Cloudflare Worker to inspect requests
+and write IP blocks to Cloudflare KV with a preconfigured TTL to auto-expire the blocks. We'll also extend the block if an attacker continues
+to make requests after we trigger a block on their IP address. We can configure the Worker to run on all requests to our domain, only a sub-domain,
+or any path or path pattern, giving us a lot of flexibility in how we deploy our canary blocks.
 
-Modes of operation:
-Read-only
-just log, don’t block
-Normal:
-1 bad path request = IP block, expires in 1 hr
-Paranoid:
-1 bad path request = IP block, every subsequent path hit extends block by 3 hrs
+We should probably implement several different modes of operation to facilitate a gradual, low-risk rollout strategy. We'll go with these modes
+to start:
+
+- Read-only - just log, don’t block
+- Normal - 1 bad path request = IP block, expires in 1 hour
+- Paranoid - 1 bad path request = IP block, every subsequent path hit extends block by 3 hours
+
+Now, let's build it...
 
 ## Build it
 
