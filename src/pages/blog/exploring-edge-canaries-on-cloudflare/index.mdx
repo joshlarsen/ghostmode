@@ -155,6 +155,13 @@ Next, create a `paths.json` file to store the paths we want to trigger blocks fr
 ]
 ```
 
+Next, create an `allowed_ips.json` file to store IPs we never want to block. These may be known corporate IPs or your own local IPs
+for testing.
+
+```json
+["127.0.0.1", "::1", "8.8.8.8"]
+```
+
 Next, create a `worker.js` file to store the Worker code.
 
 ```js
@@ -167,7 +174,7 @@ import NEVER_BLOCK from './allowed_ips.json'
  */
 async function handleRequest(request, ts) {
   const url = new URL(request.url)
-  const blockStatus = 403
+  const blockStatus = 403 // HTTP status code to return on block (e.g. 401, 403, 404)
   const TTL = 60 // expiration TTL in seconds (minimum 60)
   const IP = request.headers.get('CF-Connecting-IP')
   const key = IP
