@@ -420,7 +420,7 @@ function InterestModal({ isOpen, onClose }) {
                         </div>
                       </div>
                       <div className="mt-8 space-y-4 sm:flex sm:justify-between sm:space-y-0 sm:space-x-4">
-                        <div className="">
+                        <div className="w-full sm:w-64">
                           <input
                             onChange={handleChange}
                             value={inputText}
