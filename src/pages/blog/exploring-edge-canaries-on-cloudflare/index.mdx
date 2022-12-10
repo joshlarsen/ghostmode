@@ -49,13 +49,13 @@ attackers to its presence, and it is simply a matter of when - not if - the syst
 A recent conference <a href="https://www.slideshare.net/andrewwantsyou/staying-ahead-of-internet-background-exploitation-microsoft-bluehat-israel-2022" target="blank_">talk</a>
 by Greynoise offered emprical data to support the idea that simply reducing the visibility of vulnerable
 systems exposed to the Internet increased the mean time to compromise from 19 minutes to over 4 days. This exploration looks at
-ways we can leverage that concept with Cloudflare Workers and KV.
+ways we can leverage that concept with Cloudflare Workers and Cloudflare KV.
 
 ## Approach
 
 The general idea for filtering out some of the noise associated with Internet-wide scanning is start with some notion of what
-this known-bad scanning activity looks like. For that, we turn to the excellent [Nuclei](https://nuclei.projectdiscovery.io/)
-project from Project Discovery. The Nuclei community creates and maintains a massive collection of templates that security
+this known-bad scanning activity looks like. For that, we turn to the excellent <a href="https://nuclei.projectdiscovery.io" target="blank_">Nuclei</a>
+project from Project Discovery. The Nuclei community maintains a large collection of templates that security
 researchers use to discover and test specific vulnerabilities and exploits. If we use these templates as a sample of known-bad
 scanning traffic, we can block the originators of that traffic at our edge and automatically block any further noise they make - with
 the added benefit of blocking any actual attack traffic they may attempt as well.
@@ -83,23 +83,24 @@ We include `.php` here because 36% of the ~1,400 Nuclei templates involve some s
 you may need to be more specific here to avoid blocking legitimate traffic.
 
 If we treat requests for these paths as high confidence indicators of malicious scanning activity, we can safely block the sources
-of those requests and in theory reduce the noise we see - and have to triage and deal with - across our organization.
+of those requests and in theory reduce the noise we see - and have to triage - across our organization.
 
 ## Benefits
 
-We think of this type of approach as a form of canary detection, rather than strategies based on blocking content based requests.
-The signal that a potential attacker gives us by sending requests to a known-bad path allows us to block the attacker source for a
-predetermined length of time - and potentially extend the block if the attack continues to attempt to send us traffic.
+We think of this type of approach as a form of canary detection, rather than a content blocking strategy. That is to say, we aren't simply
+trying to block malicious traffic based on its direct payload or content. Reconnaissance is necessary step in the attack process. This reconnaissance
+itself produces signal. By detecting requests to a known-bad paths, we can block the attacker source for a predetermined length of time - and
+potentially extend the block if the attacker continues to attempt to send us traffic.
 
 There are several benefits of this type of approach include reducing noise as far upstream as possible (i.e. at the edge) and
 leveraging bad traffic directed at one application or API to protect other applications and APIs on our domain. Further, even
 though we don't expect to block all bad traffic, we can make it harder for bad actors by blocking their reconnaissance activity
-or at least slowing them down significantly.
+or at least delaying them significantly.
 
 ## How it works
 
-The architecture for a proof-of-concept is fairly simple. We'll deploy a small code snippet to a Cloudflare Worker to inspect requests
-and write IP blocks to Cloudflare KV with a preconfigured TTL to auto-expire the blocks. We'll also extend the block if an attacker continues
+The architecture for a proof-of-concept is fairly simple. We'll deploy a small script to a Cloudflare Worker to inspect requests
+and write IP blocks to Cloudflare KV with a pre-configured TTL to auto-expire the blocks. We'll also extend the block if an attacker continues
 to make requests after we trigger a block on their IP address. We can configure the Worker to run on all requests to our domain, only a sub-domain,
 or any path or path pattern, giving us a lot of flexibility in how we deploy our canary blocks.
 
