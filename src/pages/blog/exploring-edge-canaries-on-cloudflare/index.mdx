@@ -88,12 +88,13 @@ of those requests and in theory reduce the noise we see - and have to triage and
 ## Benefits
 
 We think of this type of approach as a form of canary detection, rather than strategies based on blocking content based requests.
-The signal that a potential attackers gives us by sending requests to a known-bad path allow us to block the attacker source for a
+The signal that a potential attacker gives us by sending requests to a known-bad path allows us to block the attacker source for a
 predetermined length of time - and potentially extend the block if the attack continues to attempt to send us traffic.
 
-Benefits of this type of approach include reducing noise as far upstream as possible (i.e. at the edge), leveraging bad traffic
-directed at one application or API to protect other applications and APIs on our domain. Even though we don't expect to block all, or
-anywhere near all bad traffic, we can make harder for bad actors by blocking or slowing down their activity.
+There are several benefits of this type of approach include reducing noise as far upstream as possible (i.e. at the edge) and
+leveraging bad traffic directed at one application or API to protect other applications and APIs on our domain. Further, even
+though we don't expect to block all bad traffic, we can make it harder for bad actors by blocking their reconnaissance activity
+or at least slowing them down significantly.
 
 ## How it works
 
@@ -105,9 +106,9 @@ or any path or path pattern, giving us a lot of flexibility in how we deploy our
 We should probably implement several different modes of operation to facilitate a gradual, low-risk rollout strategy. We'll go with these modes
 to start:
 
-- Read-only - just log, don’t block
-- Normal - 1 bad path request = IP block, expires in 1 hour
-- Paranoid - 1 bad path request = IP block, every subsequent path hit extends block by 3 hours
+- **Read-only**: just log request to bad paths, don’t block anything
+- **Normal**: one bad path request results in a block of the source IP address, expires in 1 hour
+- **Paranoid**: one bad path request results in a block of the source IP address, every subsequent path hit extends the block by 3 hours
 
 Now, let's build it...
 
@@ -287,7 +288,7 @@ of our approach.
 
 ### Pros
 
-- High confidence signal of bad requests - we can be confident that no legitimate requests would ever be made for paths such as `/.env`, `/etc/passed`, and `<script>`.
+- High confidence signal of bad requests - we can be confident that no legitimate requests would ever be made for paths such as `/.env`, `/etc/passed`, `../../`, and `<script>`.
 - Highly read performant - Cloudflare KV is highly read-optimized
 - Broad coverage - we could get broad coverage across an entire domain with a single deployment
 - Cost effective - Worker requests and KV reads/writes are relatively inexpensive
@@ -305,8 +306,8 @@ As a limited proof-of-concept, we were able to prove some basic functionality, H
 
 - More precise detections
 - Profile/fingerprint clients to make more nuanced decisions
-- Only trigger on non 20x responses to minimize false positives
-- Auto-block other bad IPs external threat feeds
+- Only trigger on unsuccessful (i.e. non-20x) responses to minimize false positives
+- Auto-block other bad IP addresses or IOCs from external threat feeds
 
 ## Workers for platforms
 
