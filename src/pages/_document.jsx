@@ -84,6 +84,13 @@ class GhostDocument extends Document {
         <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
           <Main />
           <NextScript />
+          <script
+            type="text/javascript"
+            id="hs-script-loader"
+            async
+            defer
+            src="//js.hs-scripts.com/21900111.js"
+          ></script>
         </body>
       </Html>
     )
