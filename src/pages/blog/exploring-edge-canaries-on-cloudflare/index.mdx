@@ -5,15 +5,15 @@ import edge2 from './edge2.png'
 
 export const meta = {
   author: 'Josh Larsen',
-  date: '2022-12-01',
+  date: '2022-12-09',
   title: 'Exploring edge canary detection on Cloudflare',
   description:
-    "Defense in depth as a security strategy is something we've been encouraging for quite some time in the infosec industry. There is no perfect solution to prevent the myraid attacks organizations are faced with every day, a layered approach is critical to mitigate different risks in different ways.",
+    "Defense in depth as a security strategy is something we've been encouraging for quite some time in the infosec industry. There is no perfect solution to prevent the myriad attacks organizations are faced with every day, a layered approach is critical to mitigate different risks in different ways.",
 }
 
 export default (props) => <ArticleLayout meta={meta} {...props} />
 
-Defense in depth as a security strategy is something we've been encouraging for quite some time in the infosec industry. There is no perfect solution to prevent the myraid attacks organizations are faced with every day, a layered approach is critical to mitigate different risks in different ways.
+Defense in depth as a security strategy is something we've been encouraging for quite some time in the infosec industry. There is no perfect solution to prevent the myriad attacks organizations are faced with every day, a layered approach is critical to mitigate different risks in different ways.
 
 ## Expanding capabilities at the edge
 
@@ -32,13 +32,13 @@ has compelling capabilities that offer an interesting deployment option to chall
 <Image src={edge1} alt="" />
 
 With this in mind, we thought we'd explore extending some of our application and API security goals out to the Cloudflare edge.
-Even though Cloudflare has some of their own security capabilities in the form of DDoS mitigation and WAF functions, what we
-are aiming to do is a little more specific of a use case.
+Even though Cloudflare has some of their own security capabilities in the form of DDoS mitigation and WAF functions, what what
+we are aiming to do is leverage their capabilities for a more specialized and dynamic use case.
 
 ## Reducing noise
 
 One of our guiding principals at Ghost is reducing "toil" for our customers - reducing the amount of tedious, and often
-repetetive work that doesn't yield meaningful results. One way to do this is to reduce the amount of noise our customers see
+repetitive work that doesn't yield meaningful results. One way to do this is to reduce the amount of noise our customers see
 in the form of alerts, incidents, issues, and events. **Reducing** noise is an important way to **increase** signal.
 
 It's common knowledge that a vulnerable system exposed to the Internet will last mere minutes before being compromised,
@@ -47,9 +47,10 @@ attacker (e.g. access to bandwidth, compute resources, or sensitive data), const
 attackers to its presence, and it is simply a matter of when - not if - the system is compromised.
 
 A recent conference <a href="https://www.slideshare.net/andrewwantsyou/staying-ahead-of-internet-background-exploitation-microsoft-bluehat-israel-2022" target="blank_">talk</a>
-by Greynoise offered emprical data to support the idea that simply reducing the visibility of vulnerable
-systems exposed to the Internet increased the mean time to compromise from 19 minutes to over 4 days. This exploration looks at
-ways we can leverage that concept with Cloudflare Workers and Cloudflare KV.
+by GreyNoise offered emprical data to support the idea that simply reducing the visibility of vulnerable
+systems exposed to the Internet increased the mean time to compromise from 19 minutes to over 4 days. This exploration looks
+at ways we can use Cloudflare Workers and KV to reliably detect undesired sources and immediately take action to reduce their
+ability to connect to our applications.
 
 ## Approach
 
@@ -92,10 +93,9 @@ trying to block malicious traffic based on its direct payload or content. Reconn
 itself produces signal. By detecting requests to a known-bad paths, we can block the attacker source for a predetermined length of time - and
 potentially extend the block if the attacker continues to attempt to send us traffic.
 
-There are several benefits of this type of approach include reducing noise as far upstream as possible (i.e. at the edge) and
-leveraging bad traffic directed at one application or API to protect other applications and APIs on our domain. Further, even
-though we don't expect to block all bad traffic, we can make it harder for bad actors by blocking their reconnaissance activity
-or at least delaying them significantly.
+Benefits of this type of approach include reducing noise as far upstream as possible (i.e. at the edge) and leveraging bad traffic directed
+at one application or API to protect other applications and APIs on our domain. Further, even though we don't expect to block all bad traffic,
+we can increase the attacking cost of bad actors by blocking or slowing down their automated activity.
 
 ## How it works
 
