@@ -7,7 +7,7 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoAnimaginary from '@/images/logos/animaginary.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
+import logoComp from '@/images/logos/bank.svg'
 
 import { getAllJobs } from '@/lib/getAllJobs'
 
@@ -24,7 +24,7 @@ const benefits = [
     description:
       'We offer competitive compensation packages with unlimited, minimum required PTO as well as paid sick leave and holidays.',
     link: { href: '#', label: '' },
-    logo: logoCosmos,
+    logo: logoComp,
   },
   {
     name: 'Health & Wellness',
