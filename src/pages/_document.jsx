@@ -72,7 +72,7 @@ class GhostDocument extends Document {
           <meta content="1200" property="og:image:width" />
           <meta content="630" property="og:image:height" />
           <meta property="og:site_name" content="Ghost Security" />
-          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@ghostsecurityhq" />
           <meta name="twitter:creator" content="@ghostsecurityhq" />
         </Head>
