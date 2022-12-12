@@ -67,7 +67,7 @@ class GhostDocument extends Document {
           <meta property="og:description" content={d} />
           <meta
             property="og:image"
-            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og.png`}
+            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-695824e2c0.png`}
           />
           <meta property="og:site_name" content="Ghost Security" />
           <meta name="twitter:card" content="summary" />
