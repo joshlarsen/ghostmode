@@ -67,7 +67,7 @@ class GhostDocument extends Document {
           <meta property="og:description" content={d} />
           <meta
             property="og:image"
-            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-695824e2c0.png`}
+            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-7cf941b68.png`}
           />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
