@@ -62,6 +62,7 @@ function Job({ title, href, children }) {
         Remote
       </Card.Link>
       <Card.Description>{children}</Card.Description>
+      <Card.Cta>Read more</Card.Cta>
     </Card>
   )
 }
