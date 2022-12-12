@@ -69,14 +69,15 @@ class GhostDocument extends Document {
             property="og:image"
             content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-695824e2c0.png`}
           />
-          <meta content="1200" property="og:image:width" />
-          <meta content="630" property="og:image:height" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <meta property="og:site_name" content="Ghost Security" />
-          <meta property="twitter:card" content="summary" />
-          <meta property="twitter:site" content="@ghostsecurityhq" />
-          <meta property="twitter:description" content={d} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@ghostsecurityhq" />
+          <meta name="twitter:title" content={t} />
+          <meta name="twitter:description" content={d} />
           <meta
-            property="twitter:image"
+            name="twitter:image"
             content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-7cf941b68-twitter.png`}
           />
         </Head>
