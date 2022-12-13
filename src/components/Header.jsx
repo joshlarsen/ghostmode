@@ -174,6 +174,7 @@ function DesktopNavigation(props) {
 }
 
 function ModeToggle() {
+  return // disable toggle button
   function disableTransitionsTemporarily() {
     document.documentElement.classList.add('[&_*]:!transition-none')
     window.setTimeout(() => {
