@@ -476,7 +476,7 @@ export default function Platforms() {
       </Head>
       <SimpleLayout
         title="The Ghost Platform integrates at every layer of your stack."
-        intro="We are building the Ghost Platform guided by the North Star of meeting our customers where they are. These means deployment models supporting all major cloud providers and purpose built integrations for every layer of your application stack from the edge, to the workloads, to the operations tools."
+        intro="We are building the Ghost Platform guided by the North Star of meeting our customers where they are. This means deployment models supporting all major cloud providers and purpose built integrations for every layer of your application stack from the edge, to the workloads, to the operations tools."
       >
         <ul
           role="list"
