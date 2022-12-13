@@ -8,6 +8,7 @@ import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoAnimaginary from '@/images/logos/animaginary.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoComp from '@/images/logos/bank.svg'
+import teamVail from '@/images/photos/vail.jpg'
 
 import { getAllJobs } from '@/lib/getAllJobs'
 
@@ -79,8 +80,15 @@ export default function Positions({ jobs }) {
       </Head>
       <SimpleLayout
         title="Do you believe in Ghosts?"
-        intro="Great teams build great products. We work hard to maintain an environment where our team is empowered to do their best work."
+        intro="Great teams build great products. We work hard to maintain an environment where our team is empowered to do their best work. And have fun too!"
       >
+        <div className="pb-9 sm:pb-20">
+          <Image
+            src={teamVail}
+            alt="Ghost team in Vail, CO"
+            className="rounded-xl object-cover grayscale"
+          />
+        </div>
         <div>
           <ul
             role="list"
