@@ -80,7 +80,7 @@ export default function Positions({ jobs }) {
       </Head>
       <SimpleLayout
         title="Do you believe in Ghosts?"
-        intro="Great teams build great products. We work hard to maintain an environment where our team is empowered to do their best work. And have fun too!"
+        intro="Great teams build great products. We work hard to maintain an environment where our team is empowered to do their best work - and have fun too!"
       >
         <div className="pb-9 sm:pb-20">
           <Image
