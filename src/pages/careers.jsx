@@ -108,7 +108,7 @@ export default function Positions({ jobs }) {
                   {benefit.name}
                 </h2>
                 <Card.Description>
-                  <div className="max-w-md">{benefit.description}</div>
+                  <p className="max-w-md">{benefit.description}</p>
                 </Card.Description>
               </Card>
             ))}

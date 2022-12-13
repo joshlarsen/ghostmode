@@ -28,8 +28,10 @@ export function Footer() {
                 <NavLink href="/about">About</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Ghost Security, Inc. All
-                rights reserved.
+                <span>
+                  &copy; {new Date().getFullYear()} Ghost Security, Inc. All
+                  rights reserved.
+                </span>
               </p>
             </div>
           </Container.Inner>
