@@ -105,9 +105,6 @@ function InterestModal({ isOpen, onClose }) {
     const portalId = '21900111'
     const formGuid = '5c66f9d4-c6cf-4aed-9ece-81b9dcb561a9' // phase 2 pre-launch
     const hsUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`
-    // const hsUrl = `http://localhost:4000`
-
-    console.log('interest form submitted', inputText)
 
     const payload = {
       fields: [
@@ -228,7 +225,7 @@ function InterestModal({ isOpen, onClose }) {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-zinc-900 p-6 text-left align-middle shadow-xl transition-all">
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={handleSubmit} className="platform-interest">
                     <Dialog.Title
                       as="h3"
                       className="text-2xl font-bold leading-6 tracking-tight text-zinc-100"

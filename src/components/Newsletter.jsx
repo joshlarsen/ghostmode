@@ -55,11 +55,8 @@ export function Newsletter() {
   }
 
   return (
-    <div>
-      <form
-        onSubmit={handleSubmit}
-        className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-      >
+    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      <form onSubmit={handleSubmit} className="newsletter-signup">
         <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
           <MailIcon className="h-6 w-6 flex-none" />
           <span className="ml-3">Stay up to date</span>
