@@ -42,6 +42,21 @@ const nextConfig = {
         destination: '/blog/skeletons-in-your-app-sec-closet',
         permanent: true,
       },
+      {
+        source: '/josh',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/greg',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/eric',
+        destination: '/about',
+        permanent: true,
+      },
     ]
   },
 }
