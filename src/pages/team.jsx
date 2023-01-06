@@ -26,6 +26,7 @@ import yuri from '@/images/photos/team/yuri.png'
 import chuck from '@/images/photos/team/chuck.png'
 import sean from '@/images/photos/team/sean.png'
 import owen from '@/images/photos/team/owen.png'
+import robert from '@/images/photos/team/robert.jpg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { getAllJobs } from '@/lib/getAllJobs'
@@ -79,6 +80,10 @@ const linkedInLinks = {
   chuck: {
     twitter: '#',
     linkedIn: 'https://www.linkedin.com/in/chuck-hall-75093726',
+  },
+  robert: {
+    twitter: '#',
+    linkedIn: 'https://www.linkedin.com/in/seattlecissp',
   },
   sean: { twitter: '#', linkedIn: 'https://www.linkedin.com/in/macdonsp' },
   owen: { twitter: '#', linkedIn: 'https://www.linkedin.com/in/owenrumney' },
@@ -137,6 +142,7 @@ function Photos() {
     megan,
     chuck,
     jen,
+    robert,
     owen,
   ]
   const [teamArray, updateTeamArray] = useState(team)
