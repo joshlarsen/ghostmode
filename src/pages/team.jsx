@@ -128,6 +128,8 @@ function Photos() {
     '-rotate-2',
     'rotate-2',
     '-rotate-2',
+    'rotate-2',
+    'rotate-2',
   ]
   let team = [
     greg,
