@@ -11,9 +11,6 @@ import logoGhostLight from '@/images/ghost_in_motion_light.svg'
 import logoNetRise from '@/images/logos/fogs/netrise.svg'
 import logoNudge from '@/images/logos/fogs/nudge.svg'
 import logoSentra from '@/images/logos/fogs/sentra.svg'
-import logoGCP from '@/images/logos/gcp.svg'
-import logoAPIgw from '@/images/logos/apigw.svg'
-import logoContainers from '@/images/logos/containers.svg'
 
 const companies = [
   {
@@ -202,10 +199,18 @@ export default function LandingPage() {
                   San Francisco, CA
                   <br />
                   <div className="space-x-4 text-xs text-zinc-500 dark:text-zinc-500">
-                    <a href="#" target="_blank">
+                    <a
+                      href="https://goo.gl/maps/6jxnyybcGGRG7WeL9"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
                       Google Map
                     </a>
-                    <a href="#" target="_blank">
+                    <a
+                      href="https://maps.apple.com/?address=181%202nd%20St,%20San%20Francisco,%20CA%20%2094105,%20United%20States&auid=10882127440623049633&ll=37.787175,-122.398362&lsp=9902&q=Focus%20Innovation%20Studio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Apple Map
                     </a>
                   </div>
