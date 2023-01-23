@@ -208,7 +208,7 @@ function Photos() {
       clearTimeout(sliderTimeout)
       clearTimeout(removerTimeout)
     }
-  }, [])
+  })
 
   return (
     <div className="mt-16 sm:mt-20">
