@@ -17,7 +17,6 @@ export function Rsvp() {
     const portalId = '21900111'
     const formGuid = '03be8ad7-de2c-4307-8c25-34fee62b99e3' // rsa 2023
     const hsUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`
-    // const hsUrl = `http://localhost:4000/${portalId}/${formGuid}`
 
     const payload = {
       fields: [
