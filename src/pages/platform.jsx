@@ -13,7 +13,6 @@ import logoGCP from '@/images/logos/gcp.svg'
 import logoAPIgw from '@/images/logos/apigw.svg'
 import logoContainers from '@/images/logos/containers.svg'
 import logoWorkflows from '@/images/logos/workflows.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 
