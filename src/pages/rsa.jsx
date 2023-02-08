@@ -11,6 +11,7 @@ import logoGhostLight from '@/images/ghost_in_motion_light.svg'
 import logoNetRise from '@/images/logos/fogs/netrise.svg'
 import logoNudge from '@/images/logos/fogs/nudge.svg'
 import logoSentra from '@/images/logos/fogs/sentra.svg'
+import logoDescope from '@/images/logos/fogs/descope.svg'
 
 const companies = [
   {
@@ -18,6 +19,13 @@ const companies = [
     description: 'The modern application security platform.',
     link: { href: 'https://ghost.security', label: 'Learn more' },
     logo: logoGhostLight,
+  },
+  {
+    name: 'Descope',
+    description:
+      'Gain visibility into workload level attacks against your applications and APIs by seamlessly integrating with Isto, Linkerd, or Cillium service mesh.',
+    link: { href: 'https://www.descope.com/', label: 'Learn more' },
+    logo: logoDescope,
   },
   {
     name: 'NetRise',
@@ -39,27 +47,6 @@ const companies = [
     link: { href: 'https://www.sentra.io/', label: 'Learn more' },
     logo: logoSentra,
   },
-  // {
-  //   name: 'Pangea',
-  //   description:
-  //     'Protect applications and APIs deployed on Google Cloud Platform by integrating with VPC Packet Mirroring, and Google Cloud API Gateways.',
-  //   link: { href: '#', label: 'Learn more' },
-  //   logo: logoGCP,
-  // },
-  // {
-  //   name: 'CmdZero',
-  //   description:
-  //     'Leverage your existing API Gateway infrastructure to accelerate API surface area discovery and inventory.',
-  //   link: { href: '#', label: 'Learn more' },
-  //   logo: logoAPIgw,
-  // },
-  // {
-  //   name: 'Descope',
-  //   description:
-  //     'Gain visibility into workload level attacks against your applications and APIs by seamlessly integrating with Isto, Linkerd, or Cillium service mesh.',
-  //   link: { href: '#', label: 'Learn more' },
-  //   logo: logoContainers,
-  // },
 ]
 
 function SocialLink({ className, href, children, icon: Icon }) {
