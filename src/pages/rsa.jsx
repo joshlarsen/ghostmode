@@ -23,7 +23,7 @@ const companies = [
   {
     name: 'Descope',
     description:
-      'Descope helps every developer build secure, frictionless authentication and user journeys for any application. Our no-code workflow builder, SDKs, and APIs enable developers to easily create and customize authentication flows for every user interaction.',
+      'Descope helps every developer build secure, frictionless authentication and user journeys for any application.',
     link: { href: 'https://www.descope.com/', label: 'Learn more' },
     logo: logoDescope,
   },
