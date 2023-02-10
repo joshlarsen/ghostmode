@@ -23,7 +23,7 @@ const companies = [
   {
     name: 'Descope',
     description:
-      'Gain visibility into workload level attacks against your applications and APIs by seamlessly integrating with Isto, Linkerd, or Cillium service mesh.',
+      'Descope helps every developer build secure, frictionless authentication and user journeys for any application. Our no-code workflow builder, SDKs, and APIs enable developers to easily create and customize authentication flows for every user interaction.',
     link: { href: 'https://www.descope.com/', label: 'Learn more' },
     logo: logoDescope,
   },
