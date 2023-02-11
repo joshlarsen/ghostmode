@@ -15,7 +15,6 @@ import eric from '@/images/photos/team/eric.jpeg'
 import greg from '@/images/photos/team/greg.jpeg'
 import sergio from '@/images/photos/team/sergio.jpeg'
 import jay from '@/images/photos/team/jay.png'
-import jen from '@/images/photos/team/jen.png'
 import joel from '@/images/photos/team/joel.png'
 import josh from '@/images/photos/team/josh.jpg'
 import luis from '@/images/photos/team/luis.png'
@@ -56,7 +55,6 @@ const linkedInLinks = {
   },
   sergio: { twitter: '#', linkedIn: 'https://www.linkedin.com/in/serpulga' },
   jay: { twitter: '#', linkedIn: '#' },
-  jen: { twitter: '#', linkedIn: 'https://www.linkedin.com/in/moremorioka/' },
   joel: {
     twitter: 'https://twitter.com/joelschopp',
     linkedIn: 'https://www.linkedin.com/in/schopp/',
@@ -154,7 +152,6 @@ function Photos() {
     megan,
     chuck,
     liam,
-    jen,
     robert,
     owen,
     ivan,
