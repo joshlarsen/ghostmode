@@ -217,7 +217,7 @@ export default function LandingPage() {
                   Time
                 </dt>
                 <dd className="mt-1 text-sm text-zinc-900 dark:text-zinc-100">
-                  3:30pm - 6:30pm
+                  3:00pm - 6:00pm
                 </dd>
               </div>
             </dl>
