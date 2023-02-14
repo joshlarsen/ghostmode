@@ -1,0 +1,31 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import kubecon1 from './kubecon1.png'
+
+export const meta = {
+  author: 'A Ghost',
+  date: '2023-09-14',
+  title: 'Ghost Security at KubeCon + CloudNativeCon Europe 2023',
+  description:
+    'Ghost Security is headed to Amsterdam! Brad Geesaman, our very own Staff Security Engineer and Cloud & Kubernetes security aficionado, will be joined by Ian Coldwater, Duffie Cooley, and Rory McCune to present, “Malicious Compliance: Reflections on Trusting Container Scanners” at KubeCon EU in April.',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+Ghost Security is headed to Amsterdam! [Brad Geesaman](/blog/ghost-sighting-get-to-know-brad-geesaman), our very own Staff Security Engineer and Cloud & Kubernetes security aficionado, will be joined by Ian Coldwater, Duffie Cooley, and Rory McCune to present, “Malicious Compliance: Reflections on Trusting Container Scanners” at KubeCon EU in April.
+
+<Image src={kubecon1} alt="" />
+
+What exactly can you expect during this 35-minute discussion? Check out the official abstract below.
+
+> A commonly recommended best practice for security and compliance is to scan container images for vulnerabilities before allowing them to run inside a cluster. Many organizations codify allow/deny policies based on the results of these scans, using this policy-as-code approach to form the basis of trust. But what exactly are container scanners looking for? And can you always trust the results?
+
+> Let’s break this down layer by layer, from an attacker perspective. Why do certain changes in the way images are built produce wildly varying results? Can the flexibility in how container images are built and distributed be used to alter or prevent scanning tools from being able to fully understand what's in a container? How might clever image builders use these tricks to avoid scrutiny from these tools?
+
+> Join the hacker crew known as SIG-Honk, and let’s have some fun! [Brad Geesaman](https://twitter.com/bradgeesaman), [Ian Coldwater](https://twitter.com/iancoldwater), [Duffie Cooley](https://twitter.com/mauilion), and [Rory McCune](https://twitter.com/raesene) will demonstrate some creative ways to intentionally bypass container image analysis and admission control detection. Attendees will walk away with a greater understanding of the limitations of tooling used to validate images, and learn how to create better security policies in their own environments. The results may surprise you!
+
+This presentation will take place on Friday April 21, 2023 at 14:00 - 14:35 CEST in the Auditorium Center | Auditorium + Balcony. Event registration is required in order to view this session. Both inperson and virtual options are available. For more details and registration, visit: [https://kccnceu2023.sched.com/event/1Hybu](https://kccnceu2023.sched.com/event/1Hybu)
+
+If you aren’t able to attend in person or virtually, be sure to check the [CNCF YouTube Channel](https://www.youtube.com/@cncf) after the event for the session recording.
+
+Hope to see you there!
