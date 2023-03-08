@@ -29,8 +29,7 @@ const companies = [
   },
   {
     name: 'NetRise',
-    description:
-      'Comprehensive insight into the many risks present in firmware images.',
+    description: "Supply chain security for the world's connected devices.",
     link: { href: 'https://www.netrise.io/', label: 'Learn more' },
     logo: logoNetRise,
   },
