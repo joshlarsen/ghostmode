@@ -14,7 +14,6 @@ import don from '@/images/photos/team/don.png'
 import eric from '@/images/photos/team/eric.jpeg'
 import greg from '@/images/photos/team/greg.jpeg'
 import sergio from '@/images/photos/team/sergio.jpeg'
-import jay from '@/images/photos/team/jay.png'
 import joel from '@/images/photos/team/joel.png'
 import josh from '@/images/photos/team/josh.jpg'
 import luis from '@/images/photos/team/luis.png'
@@ -54,7 +53,6 @@ const linkedInLinks = {
     linkedIn: 'https://www.linkedin.com/in/gregcmartin/',
   },
   sergio: { twitter: '#', linkedIn: 'https://www.linkedin.com/in/serpulga' },
-  jay: { twitter: '#', linkedIn: '#' },
   joel: {
     twitter: 'https://twitter.com/joelschopp',
     linkedIn: 'https://www.linkedin.com/in/schopp/',
@@ -145,7 +143,6 @@ function Photos() {
     yuri,
     stevie,
     luis,
-    jay,
     joel,
     sean,
     sergio,
