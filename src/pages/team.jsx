@@ -16,7 +16,6 @@ import greg from '@/images/photos/team/greg.jpeg'
 import sergio from '@/images/photos/team/sergio.jpeg'
 import joel from '@/images/photos/team/joel.png'
 import josh from '@/images/photos/team/josh.jpg'
-import luis from '@/images/photos/team/luis.png'
 import megan from '@/images/photos/team/megan.png'
 import stevie from '@/images/photos/team/stevie.png'
 import yuri from '@/images/photos/team/yuri.png'
@@ -60,10 +59,6 @@ const linkedInLinks = {
   josh: {
     twitter: 'https://twitter.com/josh_larsen',
     linkedIn: 'https://www.linkedin.com/in/joshlarsen/',
-  },
-  luis: {
-    twitter: '#',
-    linkedIn: 'https://www.linkedin.com/in/luis-felipe-nicolau',
   },
   megan: {
     twitter: 'https://twitter.com/meganHorner00',
@@ -142,7 +137,6 @@ function Photos() {
     brad,
     yuri,
     stevie,
-    luis,
     joel,
     sean,
     sergio,
