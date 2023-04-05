@@ -120,6 +120,7 @@ export default function Positions({ jobs }) {
           </h3>
           <JobsSection title="Engineering">
             {jobs
+              .filter((j) => j.active == true)
               .filter((j) => j.team == 'Engineering')
               .map((job, idx) => (
                 <Job title={job.position} href={job.link} key={idx}>
