@@ -10,11 +10,9 @@ import { Newsletter } from '@/components/Newsletter'
 import { Jobs } from '@/components/Jobs'
 import brad from '@/images/photos/team/brad.png'
 import david from '@/images/photos/team/david.png'
-import don from '@/images/photos/team/don.png'
 import eric from '@/images/photos/team/eric.jpeg'
 import greg from '@/images/photos/team/greg.jpeg'
 import sergio from '@/images/photos/team/sergio.jpeg'
-import joel from '@/images/photos/team/joel.png'
 import josh from '@/images/photos/team/josh.jpg'
 import megan from '@/images/photos/team/megan.png'
 import stevie from '@/images/photos/team/stevie.png'
@@ -39,10 +37,6 @@ const linkedInLinks = {
     linkedIn: 'https://www.linkedin.com/in/bradgeesaman/',
   },
   david: { twitter: '#', linkedIn: 'https://www.linkedin.com/in/matslofva/' },
-  don: {
-    twitter: '#',
-    linkedIn: 'https://www.linkedin.com/in/don-campbell79/',
-  },
   eric: {
     twitter: '#',
     linkedIn: 'https://www.linkedin.com/in/eric-cornelius-7b08b85/',
@@ -52,10 +46,6 @@ const linkedInLinks = {
     linkedIn: 'https://www.linkedin.com/in/gregcmartin/',
   },
   sergio: { twitter: '#', linkedIn: 'https://www.linkedin.com/in/serpulga' },
-  joel: {
-    twitter: 'https://twitter.com/joelschopp',
-    linkedIn: 'https://www.linkedin.com/in/schopp/',
-  },
   josh: {
     twitter: 'https://twitter.com/josh_larsen',
     linkedIn: 'https://www.linkedin.com/in/joshlarsen/',
@@ -132,12 +122,10 @@ function Photos() {
     greg,
     josh,
     eric,
-    don,
     david,
     brad,
     yuri,
     stevie,
-    joel,
     sean,
     sergio,
     megan,
