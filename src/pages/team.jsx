@@ -13,6 +13,7 @@ import david from '@/images/photos/team/david.png'
 import eric from '@/images/photos/team/eric.jpeg'
 import greg from '@/images/photos/team/greg.jpeg'
 import sergio from '@/images/photos/team/sergio.jpeg'
+import bonnie from '@/images/photos/team/bonnie.jpg'
 import josh from '@/images/photos/team/josh.jpg'
 import megan from '@/images/photos/team/megan.png'
 import stevie from '@/images/photos/team/stevie.png'
@@ -77,6 +78,10 @@ const linkedInLinks = {
     twitter: '#',
     linkedIn: 'https://www.linkedin.com/in/%E0%B2%A0%EF%BC%BF%E0%B2%A0',
   },
+  bonnie: {
+    twitter: '#',
+    linkedIn: 'http://www.linkedin.com/in/bonnie-g-169094139',
+  },
 }
 
 function Article({ article }) {
@@ -134,6 +139,7 @@ function Photos() {
     robert,
     owen,
     ivan,
+    bonnie,
   ]
   const [teamArray, updateTeamArray] = useState(team)
 
