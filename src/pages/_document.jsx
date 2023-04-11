@@ -67,7 +67,7 @@ class GhostDocument extends Document {
           <meta property="og:description" content={d} />
           <meta
             property="og:image"
-            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-7cf941b68.png`}
+            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-6a31b90caeb577cf7dcbbab1b4d3d4aa.png`}
           />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
@@ -78,7 +78,7 @@ class GhostDocument extends Document {
           <meta name="twitter:description" content={d} />
           <meta
             name="twitter:image"
-            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-7cf941b68-twitter.png`}
+            content={`${process.env.NEXT_PUBLIC_SITE_URL}/og-6a31b90caeb577cf7dcbbab1b4d3d4aa-twitter.png`}
           />
         </Head>
         <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
