@@ -16,7 +16,7 @@ import logoDescope from '@/images/logos/fogs/descope.svg'
 const companies = [
   {
     name: 'Ghost Security',
-    description: 'The modern application security platform.',
+    description: 'The supernatural application security platform.',
     link: { href: 'https://ghost.security', label: 'Learn more' },
     logo: logoGhostLight,
   },

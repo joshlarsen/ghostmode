@@ -43,7 +43,7 @@ class GhostDocument extends Document {
   // }
 
   render() {
-    const t = 'Ghost Security - The modern application security platform'
+    const t = 'Ghost Security - Supernatural application security'
     const d =
       'Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise.'
     return (

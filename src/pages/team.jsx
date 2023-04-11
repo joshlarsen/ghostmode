@@ -243,7 +243,7 @@ export default function Home({ articles, jobs }) {
   return (
     <>
       <Head>
-        <title>Ghost Security - The modern application security platform</title>
+        <title>Ghost Security - Supernatural application security</title>
         <meta
           name="description"
           content="Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise."

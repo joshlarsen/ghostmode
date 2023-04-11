@@ -72,7 +72,7 @@ export default function Home({ articles, jobs }) {
   return (
     <>
       <Head>
-        <title>Ghost Security - The modern application security platform</title>
+        <title>Ghost Security - Supernatural application security</title>
         <meta
           name="description"
           content="Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise."
@@ -81,7 +81,8 @@ export default function Home({ articles, jobs }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            The modern application security platform.
+            <span class="text-violet-500">Supernatural</span> application
+            security.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             The Ghost Platform is built from the ground up to enable enterprises
