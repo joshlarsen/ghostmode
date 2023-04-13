@@ -18,14 +18,14 @@
     "position": "Senior Software Engineer - Backend",
     "description": "As a Senior Software Engineer - Backend at Ghost, you will lead the development, testing, and deployment of our customer facing web platform backend built with Python and modern API frameworks. You'll be working closely with our web platform frontend engineers to create an efficient user experience for Ghost customers. If you have a solid background in backend development, expert level knowledge of Python (and async patterns), and are ready take on a senior level development role, we want to meet you.",
     "team": "Engineering",
-    "active": true
+    "active": false
   },
   {
     "link": "https://jobs.lever.co/ghostsecurity/5a86897b-e1fe-4f7c-8c3a-e745e5929925",
     "position": "Senior Software Engineer - Frontend",
     "description": "As a Senior Software Engineer - Frontend at Ghost, you will lead the development, testing, and deployment of our customer facing web platform built with Vue. You'll be working closely with our web platform backend engineers to create an efficient user experience for Ghost customers. If you have a solid background in frontend development, expert level knowledge of Vue, and are ready take on a senior level development role, we want to meet you.",
     "team": "Engineering",
-    "active": false
+    "active": true
   },
   {
     "link": "https://jobs.lever.co/ghostsecurity/bbd735a5-a861-4910-9896-136d48990c57",
