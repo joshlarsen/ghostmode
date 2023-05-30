@@ -1,83 +1,83 @@
 [
   {
-    "link": "https://jobs.lever.co/ghostsecurity/c63ebb61-ee99-492e-a09f-fd09ed7e66c3",
+    "link": "#",
     "position": "Cloud Infrastructure Engineer",
     "description": "As a Cloud Infrastructure Engineer at Ghost, you will help to scale and improve our infrastructure, availability, and reliability by working closely with our backend engineers and product team to identify problems, and create tooling and automation. If you have a solid background in software engineering and are familiar with Cloud Services (e.g. AWS, Google Cloud, or Azure), building automation tooling with Python, and/or using Infrastructure as Code tools like Terraform, we want to meet you.",
     "team": "Engineering",
     "active": false
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/88b36420-b254-497e-b433-9ad272f1185e",
+    "link": "#",
     "position": "Senior Engineering Manager",
     "description": "As a Senior Engineering Manager you will lead a team of 3-5 engineers that are developing, testing, and deploying one or more focused service components within our SaaS platform.",
     "team": "Engineering",
     "active": false
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/25d2ed3e-91a6-4e33-9c5b-12a4072ebbf1",
+    "link": "#",
     "position": "Senior Software Engineer - Backend",
     "description": "As a Senior Software Engineer - Backend at Ghost, you will lead the development, testing, and deployment of our customer facing web platform backend built with Python and modern API frameworks. You'll be working closely with our web platform frontend engineers to create an efficient user experience for Ghost customers. If you have a solid background in backend development, expert level knowledge of Python (and async patterns), and are ready take on a senior level development role, we want to meet you.",
     "team": "Engineering",
     "active": false
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/5a86897b-e1fe-4f7c-8c3a-e745e5929925",
+    "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4020794007",
     "position": "Senior Software Engineer - Frontend",
     "description": "As a Senior Software Engineer - Frontend at Ghost, you will lead the development, testing, and deployment of our customer facing web platform built with Vue. You'll be working closely with our web platform backend engineers to create an efficient user experience for Ghost customers. If you have a solid background in frontend development, expert level knowledge of Vue, and are ready take on a senior level development role, we want to meet you.",
     "team": "Engineering",
     "active": true
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/bbd735a5-a861-4910-9896-136d48990c57",
+    "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4022461007",
     "position": "Senior Software Engineer - Platform",
     "description": "As a Senior Software Engineer - Platform at Ghost, you will lead the development, testing, and deployment of our event detection platform built primarily with Go. You'll be working closely with our detections engineering team and our threat research team to create highly performant and highly accurate security event detection engine. If you have a solid background in developing performant platforms and services, advanced to expert level experience with Go, and are ready take on a senior level development role, we want to meet you.",
     "team": "Engineering",
     "active": true
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/81cd7816-5874-4a69-8d0b-05aa54ba2455",
+    "link": "#",
     "position": "Software Engineer - Analytics",
     "description": "As a Software Engineer - Analytics at Ghost, you will contribute to the development, testing, and deployment of our backend security analytics platform built with Python and Go using modern API frameworks. You'll be working closely with our core platform engineers to create an accurate and performant analytics platform capable of ingesting cloud-scale security event data from Ghost customer environments. If you have a solid background in enterprise-scale platform development, and advanced level knowledge of Python and/or Go, we want to meet you.",
     "team": "Engineering",
     "active": false
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/d3aa4ec9-62a2-41ab-8794-79c39fcd40b8",
+    "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4022459007",
     "position": "Software Engineer - Backend",
     "description": "As a Software Engineer - Backend at Ghost, you will contribute to the development, testing, and deployment of our customer facing web platform backend built with Python and modern API frameworks. You'll be working closely with our web platform frontend engineers to create an efficient user experience for Ghost customers. If you have a solid background in backend development, and advanced level knowledge of Python (and async patterns), we want to meet you.",
     "team": "Engineering",
     "active": true
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/e2260c5f-f084-47a2-b296-a2a5b34f018e",
+    "link": "#",
     "position": "Software Engineer - Frontend",
     "description": "As a Software Engineer - Frontend at Ghost, you will contribute to the development, testing, and deployment of our customer facing web platform built with Vue. You'll be working closely with our web platform backend engineers to create an efficient user experience for Ghost customers. If you have a solid background in frontend development, advanced level Vue skills, we want to meet you.",
     "team": "Engineering",
     "active": false
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/c071b4b5-f357-4ff0-9388-2bfa0568c519",
+    "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4022475007",
     "position": "Senior Threat Researcher",
     "description": "As a Senior Threat Researcher at Ghost, your work will lead to improved threat detection and defense capabilities for Ghost customers. You'll be working closely with our platform engineers to implement powerful capabilities that protect Ghost customers from modern threat actors. If you have a solid background in web application pen testing, threat research, or web based exploit development, and are ready take on a senior level threat research role, we want to meet you.",
     "team": "Research",
     "active": true
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/987c5fe0-2e1d-4360-907c-5d0b8f432cc0",
+    "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4022478007",
     "position": "Threat Researcher",
     "description": "As a Threat Researcher at Ghost, your work will lead to improved threat detection and defense capabilities for Ghost customers. You'll be working closely with our platform engineers to implement powerful capabilities that protect Ghost customers from modern threat actors. If you have a solid background in web application pen testing, threat research, or web based exploit development, we want to meet you.",
     "team": "Research",
     "active": true
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/5ed27bc2-39da-422c-91b8-93567796a3d3",
+    "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4022471007",
     "position": "Senior Product Designer",
     "description": "The Senior Product Designer will play a critical role in defining the look and feel of the Ghost Security Platform. This includes creating designs for a remarkable user interface, conducting user research and analysis, proposing compelling design patterns to showcase complex data, and testing UX flows.",
     "team": "Product",
     "active": true
   },
   {
-    "link": "https://jobs.lever.co/ghostsecurity/70c28d10-b1d2-4a8e-b40b-a9aec5be5e03",
+    "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4022473007",
     "position": "Senior Product Manager",
     "description": "The Senior Product Manager is responsible for overseeing the development and management of Ghost's modern application security platform. This includes defining product strategy and vision, conducting market research and analysis, managing product development and rollout, and working closely with engineering, research, sales, and marketing teams. The Senior Product Manager will also be responsible for driving product growth and profitability, and ensuring that our products meet the evolving needs of our customers.",
     "team": "Product",
