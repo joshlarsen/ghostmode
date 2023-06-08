@@ -14,11 +14,11 @@
     "active": false
   },
   {
-    "link": "#",
+    "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4022456007",
     "position": "Senior Software Engineer - Backend",
     "description": "As a Senior Software Engineer - Backend at Ghost, you will lead the development, testing, and deployment of our customer facing web platform backend built with Python and modern API frameworks. You'll be working closely with our web platform frontend engineers to create an efficient user experience for Ghost customers. If you have a solid background in backend development, expert level knowledge of Python (and async patterns), and are ready take on a senior level development role, we want to meet you.",
     "team": "Engineering",
-    "active": false
+    "active": true
   },
   {
     "link": "https://boards.greenhouse.io/ghostsecurity/jobs/4020794007",
@@ -46,7 +46,7 @@
     "position": "Software Engineer - Backend",
     "description": "As a Software Engineer - Backend at Ghost, you will contribute to the development, testing, and deployment of our customer facing web platform backend built with Python and modern API frameworks. You'll be working closely with our web platform frontend engineers to create an efficient user experience for Ghost customers. If you have a solid background in backend development, and advanced level knowledge of Python (and async patterns), we want to meet you.",
     "team": "Engineering",
-    "active": true
+    "active": false
   },
   {
     "link": "#",
