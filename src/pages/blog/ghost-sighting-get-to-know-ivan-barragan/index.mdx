@@ -1,0 +1,59 @@
+import Link from 'next/link'
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import ivan1 from './ivan1.jpg'
+import ivan2 from './ivan2.jpg'
+import ivan3 from './ivan3.jpg'
+import ivan4 from './ivan4.jpg'
+
+export const meta = {
+  author: 'A Ghost',
+  date: '2023-06-08',
+  title: 'Ghost Sighting: Introducing Ivan Barragan',
+  description:
+    'This week, our employee spotlight series, Ghost Sighting 👻, takes us to Wisconsin to meet Ivan Barragan. Keep reading to get to know Ivan and his family!',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+This week, our employee spotlight series, Ghost Sighting 👻, takes us to Wisconsin to meet Ivan Barragan. Keep reading to get to know Ivan and his family!
+
+<Image src={ivan1} alt="" />
+
+### Tell us a bit about yourself, Ivan!
+
+I am originally from Colombia. I was born in Bogota but raised in Chiquinquira, Boyaca. When I was 16 years old, I moved to the United States and have lived in Wisconsin ever since. I graduated from high school in Colombia and had the option to attend college right after moving to the United States. However, since I knew very little English, I decided to attend high school in the US for another year to learn the language before attending college.
+
+Eventually, I attended the University of Wisconsin-Whitewater, where I earned a Bachelor's degree in Computer Systems. But more importantly, that's where I met my wife, Kate, during my Junior year. We have been married for 13 years and have two children: Liara, who is 8, and Oliver, who is 6, as well as a 13-year-old lazy dog named Yoshi who spends most of the day sleeping. We currently live near Madison, WI, close to both of our families.
+
+<Image src={ivan2} alt="" />
+
+<Image src={ivan3} alt="" />
+
+### Very important question: mountains or beach?
+
+Mountains. I grew up in the beautiful Andes Mountains, which were always a beautiful sight. I lived at 8,400 feet above sea level, so the air was always fresh and crisp. Since I was near the equator, there were no real seasons and the temperature was consistently between 60°F to 70°F throughout the year. Although I like going to the beach for vacations, I really prefer being in the mountains.
+
+<Image src={ivan4} alt="" />
+
+### What do you enjoy doing outside of work?
+
+I like picking up new hobbies in my free time. I love learning new skills and getting my head around new concepts. So far, over the years I've gotten into: Soccer, Sim Racing, Magic the Gathering, Chess, Guitar, Drawing, 3D Modeling, Running, Cycling, Game Development, and my latest obsession is learning the ins and outs of Disc Golf.
+
+Apart from that, I love spending quality time with my family and taking Yoshi for a walk. The rest of my time is spent gaming, either solo or with a tight group of friends that I've been playing with for over 15 years.
+
+### How long have you been working at Ghost and what made you join the team?
+
+I've been working at Ghost for almost 5 months now, and I'm loving it. Before Ghost, I spent most of my career working with large multinational corporations. While they were great in many respects, things tended to move a little slower, and my influence was somewhat limited due to the sheer size of the teams. For a while, I've wanted to be part of a smaller, more dynamic team where I can have more influence on how things are done. I'm happy to have joined Ghost because I found exactly what I was looking for: a place with the freedom to experiment and quickly influence decisions. The trust I've been given to accomplish things my way is fantastic.
+
+### What’s your role at Ghost?
+
+At Ghost, I'm a Senior Frontend Engineer responsible for turning the vision of the founders and designers into reality. My responsibilities include architecting the web application using the latest technologies, mentoring and collaborating with other developers on the team, translating designs into real interfaces, and helping to set the standards we use for our codebase.
+
+### As you look at the next year at Ghost, what excites you the most?
+
+What excites me the most is the sheer potential of Ghost Security. Being part of the company at such an early stage and seeing it grow and evolve has been great. There is a large amount of critical work to be done in the next year, and if we get everything right, Ghost will be a tremendous success. Being part of a small team means that everyone's contributions and efforts really matter. This is incredibly motivating to me, and I can't wait to see what we can accomplish and deliver this year.
+
+<hr />
+
+Do you believe in ghosts? If your answer is yes, our next Ghost Sighting could be you! We’re hiring roles across multiple teams. Check out our job openings at <Link href="/careers">Ghost Careers</Link>. We can’t wait to hear from you.
