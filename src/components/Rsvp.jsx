@@ -15,7 +15,7 @@ export function Rsvp() {
    */
   function handleSubmit(e) {
     const portalId = '21900111'
-    const formGuid = '03be8ad7-de2c-4307-8c25-34fee62b99e3' // rsa 2023
+    const formGuid = '0794bfb44-4a77-4356-a7a9-86bcd85cb93b' // blackhat 2023
     const hsUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`
 
     const payload = {
@@ -98,8 +98,8 @@ export function Rsvp() {
         </h2>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
           I{`'`}ll be at the
-          <span className="font-bold text-violet-500"> RSA 2023</span> Hottest
-          Security Innovators Event
+          <span className="font-bold text-violet-500"> Ghost Omakase</span> CISO
+          Dinner
         </p>
         <div className="mt-6 sm:flex">
           <input
