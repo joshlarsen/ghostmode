@@ -1,15 +1,10 @@
 import Image from 'next/image'
 import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import { Section } from '@/components/Section'
-import { SimpleLayout } from '@/components/SimpleLayout'
-import { Card } from '@/components/Card'
 import { Rsvp } from '@/components/Rsvp'
-import venueImage from '@/images/photos/blackhat.png'
-import sushiImage from '@/images/photos/sushi.avif'
+import venueImage from '@/images/photos/sushi-event.jpeg'
+import vegasImage from '@/images/photos/vegas.png'
 import logoGhostLight from '@/images/ghost_in_motion_light.svg'
 
 const companies = [
@@ -25,7 +20,7 @@ export default function LandingPage({ jobs }) {
   return (
     <>
       <Head>
-        <title>Ghost Security BlackHat CISO Dinner</title>
+        <title>Ghost Security CISO Dinner - Black Hat 2023</title>
         <meta
           name="description"
           content="Ghost is a venture backed, product-led startup building the new standard in application security for the modern enterprise."
@@ -36,7 +31,7 @@ export default function LandingPage({ jobs }) {
           <div className="lg:pl-20">
             <div className="mx-auto max-w-xs px-2.5 ">
               <Image
-                src={sushiImage}
+                src={vegasImage}
                 alt=""
                 sizes="(min-width: 1024px) 32rem, 20rem"
                 className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
@@ -45,8 +40,18 @@ export default function LandingPage({ jobs }) {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Omakase Sushi Dinner
+              Black Hat CISO Dinner with Ghost Security
             </h1>
+            <div className="relative z-10 order-first mt-5 mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500">
+              <span
+                className="absolute inset-y-0 left-0 flex items-center"
+                aria-hidden="true"
+              >
+                <span className="h-full w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+              </span>
+              Specially curated menu including a full omakase dinner & sake
+              tasting
+            </div>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 Come join us for an unforgettable evening to celebrate the
@@ -84,9 +89,6 @@ export default function LandingPage({ jobs }) {
                 <dd className="mt-1 text-sm text-zinc-900 dark:text-zinc-100">
                   Private Suite & Balcony
                 </dd>
-                <p className="text-xs text-neutral-500">
-                  Check your email before the event.
-                </p>
               </div>
 
               <div className="sm:col-span-1">
@@ -118,6 +120,15 @@ export default function LandingPage({ jobs }) {
 
             <div className="-ml-1 pt-8">
               <Rsvp />
+              <div className="relative z-10 order-first mt-5 mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500">
+                <span
+                  className="absolute inset-y-0 left-0 flex items-center"
+                  aria-hidden="true"
+                >
+                  <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                </span>
+                Location details shared with attendance confirmation
+              </div>
             </div>
           </div>
         </div>
