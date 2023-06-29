@@ -15,7 +15,7 @@ export function Rsvp() {
    */
   function handleSubmit(e) {
     const portalId = '21900111'
-    const formGuid = '0794bfb44-4a77-4356-a7a9-86bcd85cb93b' // blackhat 2023
+    const formGuid = '794bfb44-4a77-4356-a7a9-86bcd85cb93b' // blackhat 2023
     const hsUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`
 
     const payload = {
