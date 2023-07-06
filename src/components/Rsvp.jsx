@@ -97,7 +97,7 @@ export function Rsvp() {
           <span className="ml-3">Reserve my spot</span>
         </h2>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          I{`'`}ll be at the
+          Request a seat at the{' '}
           <span className="font-bold text-violet-500"> Ghost Omakase</span> CISO
           Dinner
         </p>
