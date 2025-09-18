@@ -9,7 +9,7 @@ export default function ThankYou() {
         <title>You’re subscribed - Ghost Security</title>
         <meta
           name="description"
-          content="Thanks for subscribing to be notified."
+          content="Thanks for subscribing to be notified. 👻 jwt"
         />
       </Head>
       <div className="min-h-screen">
